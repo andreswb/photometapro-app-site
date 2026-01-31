@@ -9,7 +9,6 @@
     body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #333; }
     header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
     header h1 { margin: 0; font-size: 20px; display: flex; align-items: center; }
-    header h1 span { font-size: 24px; margin-right: 10px; }
     nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: 600; transition: opacity 0.3s; }
     nav a:hover { opacity: 0.8; text-decoration: underline; }
     .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
@@ -30,6 +29,8 @@
     .feature-card h4 { color: #667eea; margin-top: 0; }
     .note { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 5px; }
     .note strong { color: #856404; }
+    .disclaimer { background: #f8d7da; border-left: 4px solid #dc3545; padding: 15px; margin: 20px 0; border-radius: 5px; font-size: 0.95em; }
+    .disclaimer strong { color: #721c24; }
   </style>
   
 <script>
@@ -54,7 +55,7 @@
     else if (hash === 'support') showSection('support');
     else showSection('home');
     
-    switchLanguage(lang === 'de' || lang === 'es' ? lang : 'en');
+    switchLanguage(lang === 'de' ? lang : 'en');
   }
 </script>
 </head>
@@ -73,7 +74,6 @@
       <select id="lang-selector" onchange="switchLanguage(this.value)">
         <option value="en" selected>English</option>
         <option value="de">Deutsch</option>
-        <option value="es">Español</option>
       </select>
     </div>
   </header>
@@ -82,623 +82,162 @@
     <div id="home" class="section">
       <!-- English -->
       <div class="lang lang-en">
-        <h2>PhotoMetaPro - Professional Metadata Management</h2>
-        <p>Streamline your photography workflow with batch metadata editing, GPS reverse geocoding, and advanced selection filters. Protect your work with comprehensive copyright management and professional organization tools.</p>
+        <h2>PhotoMetaPro - Professional Photo Metadata Management for macOS</h2>
+        <p>The professional batch metadata editor for photographers who need to add copyright, keywords, GPS coordinates, and custom metadata to hundreds of photos quickly and accurately.</p>
         
-        <h3>Why Choose PhotoMetaPro?</h3>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <h4>🚀 Batch Processing with Progress Tracking</h4>
-            <p>Edit metadata for hundreds of photos at once. Real-time progress monitoring with elapsed time, success rates, and detailed statistics.</p>
-          </div>
-          <div class="feature-card">
-            <h4>📋 Smart Template System</h4>
-            <p>Save and reuse metadata configurations. Recent templates for quick access, template duplication, and import/export for team sharing.</p>
-          </div>
-          <div class="feature-card">
-            <h4>🌍 GPS with Reverse Geocoding</h4>
-            <p>Add GPS coordinates and automatically convert them to readable location names. Detect GPS from existing photos with one click.</p>
-          </div>
-          <div class="feature-card">
-            <h4>✏️ Quick Edit Individual Photos</h4>
-            <p>Right-click any photo for instant metadata editing without batch processing. Perfect for last-minute adjustments.</p>
-          </div>
-          <div class="feature-card">
-            <h4>🎯 Advanced Selection Filters</h4>
-            <p>Select photos by status (pending, completed, failed). Hide completed photos to focus on remaining work.</p>
-          </div>
-          <div class="feature-card">
-            <h4>📊 Processing Statistics</h4>
-            <p>View detailed stats after processing: success rate, average time per photo, and comprehensive summaries you can export.</p>
-          </div>
-          <div class="feature-card">
-            <h4>🔒 Privacy Focused</h4>
-            <p>All processing happens locally on your Mac. Your photos never leave your device. No cloud, no tracking, no data collection.</p>
-          </div>
-          <div class="feature-card">
-            <h4>💾 Flexible Output Options</h4>
-            <p>Three filename patterns, smart conflict resolution, quality control, and optional backup of originals.</p>
-          </div>
+        <div class="disclaimer">
+          <strong>⚠️ Important - Please Read</strong>
+          <p><strong>Backup:</strong> Always backup your original photos before processing. Originals are never modified - processed photos are saved to a separate directory.</p>
+          <p><strong>Compatibility:</strong> Format support depends on macOS version. Some RAW formats may have limited metadata support. Common formats (JPEG, PNG, TIFF, HEIC) fully supported.</p>
+          <p><strong>Internet:</strong> Required only for optional reverse geocoding (GPS to location names).</p>
+          <p><strong>Updates:</strong> Future updates provided at developer's discretion. No warranty. Verify metadata compatibility before batch processing.</p>
         </div>
+        
+        <h3>Key Features</h3>
+        <div class="feature-grid">
+          <div class="feature-card"><h4>🚀 Batch Processing</h4><p>Process unlimited photos with real-time progress, pause/resume, and statistics.</p></div>
+          <div class="feature-card"><h4>🔄 Undo/Redo</h4><p>20-level history for all operations (⌘Z/⌘⇧Z).</p></div>
+          <div class="feature-card"><h4>⚡ Crash Recovery</h4><p>Auto-save every 10 photos. Resume after unexpected quit.</p></div>
+          <div class="feature-card"><h4>📋 Smart Templates</h4><p>Save configs. Recent access. Import/export.</p></div>
+          <div class="feature-card"><h4>🌍 GPS + Geocoding</h4><p>Add coordinates. Auto-convert to location names.</p></div>
+          <div class="feature-card"><h4>✏️ Quick Edit</h4><p>Right-click for instant metadata editing.</p></div>
+          <div class="feature-card"><h4>🎯 Smart Filters</h4><p>Select by status. Color-coded borders.</p></div>
+          <div class="feature-card"><h4>📊 Statistics</h4><p>Success rates. Export summaries.</p></div>
+          <div class="feature-card"><h4>✅ Validation</h4><p>Pre-check disk space and permissions.</p></div>
+          <div class="feature-card"><h4>🔒 Privacy</h4><p>Local processing only. No cloud.</p></div>
+          <div class="feature-card"><h4>💾 Flexible Output</h4><p>5 filename patterns. Auto-backup.</p></div>
+          <div class="feature-card"><h4>🌐 Bilingual</h4><p>English/German with auto-detection.</p></div>
+        </div>
+        
         <h3>Perfect For</h3>
         <ul>
-          <li><strong>Professional photographers</strong> protecting work with copyright notices and organizing client deliveries</li>
-          <li><strong>Creative agencies</strong> managing stock photography libraries with consistent metadata</li>
-          <li><strong>Wedding and event photographers</strong> processing large photo sets with client information</li>
-          <li><strong>Travel photographers</strong> adding GPS coordinates and location names to photo collections</li>
-          <li><strong>Real estate photographers</strong> tagging properties with precise location data</li>
-          <li><strong>Stock photographers</strong> adding comprehensive keywords and metadata for discoverability</li>
-          <li><strong>Corporate teams</strong> standardizing photo metadata across departments</li>
+          <li>Professional photographers protecting copyright</li>
+          <li>Wedding/event photographers with client data</li>
+          <li>Travel photographers adding GPS locations</li>
+          <li>Stock photographers with keywords</li>
+          <li>Real estate photographers tagging properties</li>
         </ul>
-        <h3>Complete Feature Set</h3>
-        <ul>
-          <li><strong>Batch Metadata Editing:</strong> Process hundreds of photos with drag-and-drop simplicity</li>
-          <li><strong>Quick Edit:</strong> Right-click any photo for individual metadata editing</li>
-          <li><strong>Template Management:</strong> Save, duplicate, import/export configurations</li>
-          <li><strong>Recent Templates:</strong> Quick access to your last 3 used templates</li>
-          <li><strong>GPS Tagging:</strong> Add coordinates with automatic reverse geocoding to location names</li>
-          <li><strong>GPS Detection:</strong> Extract GPS data from photos that already contain it</li>
-          <li><strong>Selection Filters:</strong> Select by status (pending/completed/failed), hide completed photos</li>
-          <li><strong>Processing Statistics:</strong> Detailed stats with success rates and export summaries</li>
-          <li><strong>Copyright Protection:</strong> Add copyright notices to TIFF, EXIF, and IPTC metadata</li>
-          <li><strong>Keyword Management:</strong> Unlimited keywords with easy add/remove interface</li>
-          <li><strong>Custom Fields:</strong> Add any metadata fields your workflow requires</li>
-          <li><strong>Client Information:</strong> Store client names and project details in IPTC Credit</li>
-          <li><strong>Three Filename Patterns:</strong> filename_processed, filename_templatename, or filename_date</li>
-          <li><strong>Smart Conflict Resolution:</strong> Auto-rename, overwrite, or skip existing files</li>
-          <li><strong>Quality Control:</strong> Adjustable JPEG quality (70-100%)</li>
-          <li><strong>Preserve Metadata:</strong> Keep original EXIF/GPS data while adding new metadata</li>
-          <li><strong>Preserve File Dates:</strong> Maintain original creation and modification dates</li>
-          <li><strong>Automatic Backup:</strong> Optional backup of originals before processing</li>
-          <li><strong>Processing Logs:</strong> Detailed logs with filtering and JSON export</li>
-          <li><strong>Recent Directories:</strong> Quick access to your 3 most-used output folders</li>
-          <li><strong>Multiple Formats:</strong> JPEG, PNG, TIFF, RAW (CR2, CR3, NEF, ARW, DNG, ORF, RAF, RW2), HEIC</li>
-          <li><strong>Keyboard Shortcuts:</strong> ⌘O (Add), ⌘P (Process), ⌘A (Select All), Esc (Cancel)</li>
-          <li><strong>Context Menus:</strong> Right-click for Quick Edit, Show in Finder, Remove</li>
-          <li><strong>Visual Status Indicators:</strong> Color-coded photo borders (pending/processing/completed/failed)</li>
-        </ul>
-        <div class="note">
-          <strong>Note:</strong> PhotoMetaPro is designed for professional workflow efficiency. All processing is done locally on your Mac - your photos never leave your device. No subscription required, no data collection, complete privacy.
-        </div>
-        <a href="https://apps.apple.com/app/photometapro/id6757343410" class="button">Download on the Mac App Store</a>
-      </div>
-      <!-- German -->
-      <div class="lang lang-de hidden">
-        <h2>PhotoMetaPro - Professionelle Metadatenverwaltung</h2>
-        <p>Optimieren Sie Ihren Fotografie-Workflow mit Batch-Metadatenbearbeitung, GPS-Reverse-Geocoding und erweiterten Auswahlfiltern. Schützen Sie Ihre Arbeit mit umfassendem Urheberrechtsmanagement und professionellen Organisationstools.</p>
         
-        <h3>Warum PhotoMetaPro Wählen?</h3>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <h4>🚀 Batch-Verarbeitung mit Fortschrittsanzeige</h4>
-            <p>Bearbeiten Sie Metadaten für Hunderte von Fotos auf einmal. Echtzeitüberwachung mit verstrichener Zeit, Erfolgsraten und detaillierten Statistiken.</p>
-          </div>
-          <div class="feature-card">
-            <h4>📋 Intelligentes Vorlagensystem</h4>
-            <p>Speichern und wiederverwenden Sie Metadatenkonfigurationen. Zuletzt verwendete Vorlagen für schnellen Zugriff, Vorlagenduplizierung und Import/Export fürs Team.</p>
-          </div>
-          <div class="feature-card">
-            <h4>🌍 GPS mit Reverse Geocoding</h4>
-            <p>Fügen Sie GPS-Koordinaten hinzu und konvertieren Sie sie automatisch in lesbare Ortsnamen. Erkennen Sie GPS aus vorhandenen Fotos mit einem Klick.</p>
-          </div>
-          <div class="feature-card">
-            <h4>✏️ Schnellbearbeitung Einzelner Fotos</h4>
-            <p>Rechtsklicken Sie auf ein Foto für sofortige Metadatenbearbeitung ohne Batch-Verarbeitung. Perfekt für Last-Minute-Anpassungen.</p>
-          </div>
-          <div class="feature-card">
-            <h4>🎯 Erweiterte Auswahlfilter</h4>
-            <p>Wählen Sie Fotos nach Status (ausstehend, abgeschlossen, fehlgeschlagen). Blenden Sie fertige Fotos aus, um sich auf verbleibende Arbeit zu konzentrieren.</p>
-          </div>
-          <div class="feature-card">
-            <h4>📊 Verarbeitungsstatistiken</h4>
-            <p>Zeigen Sie detaillierte Statistiken nach der Verarbeitung an: Erfolgsrate, durchschnittliche Zeit pro Foto und umfassende Zusammenfassungen zum Export.</p>
-          </div>
-          <div class="feature-card">
-            <h4>🔒 Datenschutz-Fokussiert</h4>
-            <p>Alle Verarbeitung erfolgt lokal auf Ihrem Mac. Ihre Fotos verlassen niemals Ihr Gerät. Keine Cloud, kein Tracking, keine Datenerfassung.</p>
-          </div>
-          <div class="feature-card">
-            <h4>💾 Flexible Ausgabeoptionen</h4>
-            <p>Drei Dateinamensmuster, intelligente Konfliktlösung, Qualitätskontrolle und optionale Sicherung von Originalen.</p>
-          </div>
-        </div>
-        <h3>Perfekt Für</h3>
-        <ul>
-          <li><strong>Professionelle Fotografen,</strong> die Arbeit mit Urheberrechtshinweisen schützen und Kundenlieferungen organisieren</li>
-          <li><strong>Kreativagenturen,</strong> die Stock-Fotografie-Bibliotheken mit konsistenten Metadaten verwalten</li>
-          <li><strong>Hochzeits- und Eventfotografen,</strong> die große Fotosets mit Kundeninformationen verarbeiten</li>
-          <li><strong>Reisefotografen,</strong> die GPS-Koordinaten und Ortsnamen zu Fotosammlungen hinzufügen</li>
-          <li><strong>Immobilienfotografen,</strong> die Immobilien mit präzisen Standortdaten taggen</li>
-          <li><strong>Stock-Fotografen,</strong> die umfassende Schlüsselwörter und Metadaten für Auffindbarkeit hinzufügen</li>
-          <li><strong>Unternehmensteams,</strong> die Foto-Metadaten über Abteilungen hinweg standardisieren</li>
-        </ul>
-        <h3>Vollständiger Funktionsumfang</h3>
-        <ul>
-          <li><strong>Batch-Metadatenbearbeitung:</strong> Verarbeiten Sie Hunderte von Fotos mit Drag-and-Drop-Einfachheit</li>
-          <li><strong>Schnellbearbeitung:</strong> Rechtsklick auf ein Foto für individuelle Metadatenbearbeitung</li>
-          <li><strong>Vorlagenverwaltung:</strong> Speichern, duplizieren, importieren/exportieren von Konfigurationen</li>
-          <li><strong>Zuletzt Verwendete Vorlagen:</strong> Schnellzugriff auf Ihre letzten 3 verwendeten Vorlagen</li>
-          <li><strong>GPS-Tagging:</strong> Koordinaten mit automatischem Reverse Geocoding zu Ortsnamen hinzufügen</li>
-          <li><strong>GPS-Erkennung:</strong> GPS-Daten aus Fotos extrahieren, die sie bereits enthalten</li>
-          <li><strong>Auswahlfilter:</strong> Nach Status auswählen (ausstehend/abgeschlossen/fehlgeschlagen), fertige Fotos ausblenden</li>
-          <li><strong>Verarbeitungsstatistiken:</strong> Detaillierte Statistiken mit Erfolgsraten und Export-Zusammenfassungen</li>
-          <li><strong>Urheberrechtsschutz:</strong> Urheberrechtshinweise zu TIFF-, EXIF- und IPTC-Metadaten hinzufügen</li>
-          <li><strong>Schlüsselwortverwaltung:</strong> Unbegrenzte Schlüsselwörter mit einfacher Hinzufügen/Entfernen-Oberfläche</li>
-          <li><strong>Benutzerdefinierte Felder:</strong> Beliebige Metadatenfelder für Ihren Workflow hinzufügen</li>
-          <li><strong>Drei Dateinamensmuster:</strong> dateiname_processed, dateiname_vorlagenname oder dateiname_datum</li>
-          <li><strong>Mehrere Formate:</strong> JPEG, PNG, TIFF, RAW (CR2, CR3, NEF, ARW, DNG, ORF, RAF, RW2), HEIC</li>
-        </ul>
-        <div class="note">
-          <strong>Hinweis:</strong> PhotoMetaPro ist für professionelle Workflow-Effizienz konzipiert. Alle Verarbeitung erfolgt lokal auf Ihrem Mac - Ihre Fotos verlassen niemals Ihr Gerät. Kein Abonnement erforderlich, keine Datenerfassung, vollständige Privatsphäre.
-        </div>
-        <a href="https://apps.apple.com/app/photometapro/id6757343410" class="button">Im Mac App Store herunterladen</a>
-      </div>
-      <!-- Spanish -->
-      <div class="lang lang-es hidden">
-        <h2>PhotoMetaPro - Gestión Profesional de Metadatos</h2>
-        <p>Optimiza tu flujo de trabajo fotográfico con edición de metadatos por lotes, geocodificación inversa GPS y filtros de selección avanzados. Protege tu trabajo con gestión integral de derechos de autor y herramientas de organización profesional.</p>
-        
-        <h3>¿Por Qué Elegir PhotoMetaPro?</h3>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <h4>🚀 Procesamiento por Lotes con Seguimiento</h4>
-            <p>Edita metadatos de cientos de fotos a la vez. Monitoreo en tiempo real con tiempo transcurrido, tasas de éxito y estadísticas detalladas.</p>
-          </div>
-          <div class="feature-card">
-            <h4>📋 Sistema de Plantillas Inteligente</h4>
-            <p>Guarda y reutiliza configuraciones de metadatos. Plantillas recientes para acceso rápido, duplicación y importación/exportación para compartir con el equipo.</p>
-          </div>
-          <div class="feature-card">
-            <h4>🌍 GPS con Geocodificación Inversa</h4>
-            <p>Agrega coordenadas GPS y conviértelas automáticamente en nombres de ubicación legibles. Detecta GPS de fotos existentes con un clic.</p>
-          </div>
-          <div class="feature-card">
-            <h4>✏️ Edición Rápida de Fotos Individuales</h4>
-            <p>Haz clic derecho en cualquier foto para edición instantánea de metadatos sin procesamiento por lotes. Perfecto para ajustes de último minuto.</p>
-          </div>
-          <div class="feature-card">
-            <h4>🎯 Filtros de Selección Avanzados</h4>
-            <p>Selecciona fotos por estado (pendiente, completado, fallido). Oculta fotos completadas para concentrarte en el trabajo restante.</p>
-          </div>
-          <div class="feature-card">
-            <h4>📊 Estadísticas de Procesamiento</h4>
-            <p>Ve estadísticas detalladas después del procesamiento: tasa de éxito, tiempo promedio por foto y resúmenes completos que puedes exportar.</p>
-          </div>
-          <div class="feature-card">
-            <h4>🔒 Enfocado en Privacidad</h4>
-            <p>Todo el procesamiento ocurre localmente en tu Mac. Tus fotos nunca salen de tu dispositivo. Sin nube, sin rastreo, sin recopilación de datos.</p>
-          </div>
-          <div class="feature-card">
-            <h4>💾 Opciones de Salida Flexibles</h4>
-            <p>Tres patrones de nombres de archivo, resolución inteligente de conflictos, control de calidad y respaldo opcional de originales.</p>
-          </div>
-        </div>
-        <h3>Perfecto Para</h3>
-        <ul>
-          <li><strong>Fotógrafos profesionales</strong> protegiendo trabajo con avisos de derechos de autor y organizando entregas a clientes</li>
-          <li><strong>Agencias creativas</strong> gestionando bibliotecas de fotografía de stock con metadatos consistentes</li>
-          <li><strong>Fotógrafos de bodas y eventos</strong> procesando grandes conjuntos de fotos con información de clientes</li>
-          <li><strong>Fotógrafos de viajes</strong> agregando coordenadas GPS y nombres de ubicación a colecciones de fotos</li>
-          <li><strong>Fotógrafos inmobiliarios</strong> etiquetando propiedades con datos de ubicación precisos</li>
-          <li><strong>Fotógrafos de stock</strong> agregando palabras clave completas y metadatos para descubribilidad</li>
-          <li><strong>Equipos corporativos</strong> estandarizando metadatos de fotos entre departamentos</li>
-        </ul>
-        <h3>Conjunto Completo de Características</h3>
-        <ul>
-          <li><strong>Edición de Metadatos por Lotes:</strong> Procesa cientos de fotos con simplicidad de arrastrar y soltar</li>
-          <li><strong>Edición Rápida:</strong> Clic derecho en cualquier foto para edición individual de metadatos</li>
-          <li><strong>Gestión de Plantillas:</strong> Guardar, duplicar, importar/exportar configuraciones</li>
-          <li><strong>Plantillas Recientes:</strong> Acceso rápido a tus últimas 3 plantillas usadas</li>
-          <li><strong>Etiquetado GPS:</strong> Agregar coordenadas con geocodificación inversa automática a nombres de ubicación</li>
-          <li><strong>Detección GPS:</strong> Extraer datos GPS de fotos que ya los contienen</li>
-          <li><strong>Filtros de Selección:</strong> Seleccionar por estado (pendiente/completado/fallido), ocultar fotos completadas</li>
-          <li><strong>Estadísticas de Procesamiento:</strong> Estadísticas detalladas con tasas de éxito y resúmenes de exportación</li>
-          <li><strong>Protección de Derechos de Autor:</strong> Agregar avisos de derechos a metadatos TIFF, EXIF e IPTC</li>
-          <li><strong>Gestión de Palabras Clave:</strong> Palabras clave ilimitadas con interfaz fácil de agregar/eliminar</li>
-          <li><strong>Campos Personalizados:</strong> Agregar cualquier campo de metadatos que requiera tu flujo de trabajo</li>
-          <li><strong>Tres Patrones de Nombres de Archivo:</strong> archivo_processed, archivo_nombreplantilla o archivo_fecha</li>
-          <li><strong>Múltiples Formatos:</strong> JPEG, PNG, TIFF, RAW (CR2, CR3, NEF, ARW, DNG, ORF, RAF, RW2), HEIC</li>
-        </ul>
-        <div class="note">
-          <strong>Nota:</strong> PhotoMetaPro está diseñado para eficiencia de flujo de trabajo profesional. Todo el procesamiento se realiza localmente en tu Mac - tus fotos nunca salen de tu dispositivo. Sin suscripción requerida, sin recopilación de datos, privacidad completa.
-        </div>
-        <a href="https://apps.apple.com/app/photometapro/id6757343410" class="button">Descargar en el Mac App Store</a>
-      </div>
-    </div>
-    <!-- SUPPORT SECTION -->
-    <div id="support" class="section hidden">
-      <!-- English -->
-      <div class="lang lang-en">
-        <h2>Support & Help</h2>
-        <p>Need help with PhotoMetaPro? We're here to assist you.</p>
-        
-        <h3>Contact</h3>
-        <p>Email: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
-        <p>We typically respond within 24-48 hours.</p>
-        
-        <h3>Frequently Asked Questions</h3>
-        
-        <div class="faq-item">
-          <strong>How do I add photos to process?</strong>
-          <p>Click "Add Photos" (⌘O) or drag and drop photos directly into the main window. PhotoMetaPro supports JPEG, PNG, TIFF, RAW (CR2, CR3, NEF, ARW, DNG, ORF, RAF, RW2), and HEIC formats.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>How do I create and save templates?</strong>
-          <p>Fill in the metadata fields in the left sidebar (copyright, keywords, client info, etc.), configure your output settings, then click "Save as Template" at the bottom. Your template will be saved with all settings for future use.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>What is Quick Edit and how do I use it?</strong>
-          <p>Quick Edit lets you modify metadata for individual photos without batch processing. Right-click any photo thumbnail and select "Quick Edit Metadata" to instantly edit its copyright, keywords, location, GPS coordinates, and description.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>How does GPS reverse geocoding work?</strong>
-          <p>When you enter GPS coordinates in your template, click "Get Location Name" to automatically convert them to a readable location (e.g., "New York, NY, USA"). You can also use "Detect GPS" to extract coordinates from photos that already contain location data.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>What are selection filters and how do I use them?</strong>
-          <p>Use the "Select by Status" menu to filter photos by their processing state: Select Pending (not yet processed), Select Completed (successfully processed), or Select Failed (encountered errors). Use "Hide Completed" to remove finished photos from view and focus on remaining work.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>How do I view processing statistics?</strong>
-          <p>After processing photos, click the chart icon in the toolbar to view detailed statistics including total processed, success rate, processing time, and average time per photo. You can export a text summary for your records.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>What metadata does PhotoMetaPro edit?</strong>
-          <p>PhotoMetaPro edits EXIF data (date/time), IPTC data (copyright, keywords, credit, location, description), TIFF data (copyright, artist, custom fields), and GPS data (latitude/longitude coordinates with automatic location names).</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>Will my original photos be modified?</strong>
-          <p>No. PhotoMetaPro creates new processed files in your chosen output directory. Your original files are never modified. You can also enable "Backup Original Files" to create copies in an 'originals' subfolder for extra safety.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>What are the three filename patterns?</strong>
-          <p>Choose how processed files are named: (1) filename_processed.jpg - adds '_processed' suffix, (2) filename_templatename.jpg - uses your template name, (3) filename_20260105.jpg - adds the current date. Change this in Output Settings.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>What happens if a file already exists in the output directory?</strong>
-          <p>Choose from three strategies: Auto-rename (adds _1, _2, etc. - recommended), Overwrite existing files (use with caution), or Skip existing files. Set your preference in Output Settings.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>Can I add custom metadata fields?</strong>
-          <p>Yes! In the template editor, scroll to "Custom Fields" section. Add any field name and value you need. These are written to the TIFF metadata dictionary with a 'Custom_' prefix and also stored in IPTC Supplemental Category.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>What does "Preserve Original Metadata" do?</strong>
-          <p>When enabled, PhotoMetaPro keeps existing camera metadata (EXIF, GPS) and merges your new metadata with it. When disabled, only your new metadata is written. Generally, keep this enabled to preserve camera settings and original GPS data.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>What does "Preserve File Dates" do?</strong>
-          <p>When enabled, processed files keep the same creation and modification dates as the original files. This is useful for maintaining chronological organization in your photo library.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>How do I access recent templates quickly?</strong>
-          <p>Your last 3 used templates appear at the top of the templates list labeled "Recent" for one-click loading. This saves time when switching between common projects or clients.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>How do I use recent output directories?</strong>
-          <p>Your 3 most recently used output directories appear under "Recent:" in Output Settings. Click any folder to instantly set it as your output directory without using the file picker.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>What do the colored borders on photos mean?</strong>
-          <p>Photo thumbnails have color-coded borders showing their status: Gray (pending/not processed), Blue (currently processing), Green (successfully completed), Red (failed with error). Hover over failed photos to see the error message.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>How do I view what metadata will be applied?</strong>
-          <p>Click the eye icon in the toolbar to preview all metadata that will be written to your photos before processing. This shows TIFF, EXIF, IPTC, and GPS data in an organized format.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>Where can I see processing logs?</strong>
-          <p>Click the list icon in the toolbar to view detailed processing logs. Filter by status (success, warning, error, info) and export logs as JSON. The log records every operation with timestamps.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>Can I cancel processing if I made a mistake?</strong>
-          <p>Yes, click "Cancel" or press Escape during processing. Photos already processed remain in the output directory, but no new photos will be processed. You'll see how many were completed before cancellation.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>How do I duplicate a template?</strong>
-          <p>Click the document icon next to any saved template to create a copy. This is useful for creating variations of existing templates without starting from scratch.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>How do I import/export templates?</strong>
-          <p>Click the three-dot menu (⋯) next to "Project Templates" and select "Import Templates" or "Export Templates". This saves templates as JSON files for sharing between computers or backing up your configurations.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>What JPEG quality should I use?</strong>
-          <p>The default 90% provides excellent quality with reasonable file sizes. Use 95-100% for archival or maximum quality (larger files), or 85% for web use with minimal quality loss. Adjust the slider in Output Settings.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>What are the keyboard shortcuts?</strong>
-          <p>⌘O: Add Photos | ⌘A: Select All | ⇧⌘D: Deselect All | ⌘Delete: Remove Selected | ⌘P: Process All Photos | Esc: Cancel Processing | ⌘?: Show Help</p>
-        </div>
-        
-        <h3>Technical Support</h3>
-        <p>For technical issues, please email us with:</p>
-        <ul>
-          <li>Your macOS version</li>
-          <li>PhotoMetaPro version (found in About screen)</li>
-          <li>Description of the issue</li>
-          <li>Any error messages from the processing log</li>
-          <li>Screenshots if applicable</li>
-        </ul>
+        <a href="https://apps.apple.com/app/photometapro/id6757343410" class="button">Download on Mac App Store</a>
         
         <h3>System Requirements</h3>
         <ul>
-          <li>macOS 14.6 or later</li>
-          <li>Apple Silicon or Intel processor</li>
-          <li>Sufficient disk space for processed photos</li>
+          <li>macOS 13.0+ (14.6+ recommended)</li>
+          <li>Apple Silicon or Intel</li>
+          <li>Disk space for processed photos</li>
         </ul>
       </div>
-      <!-- German Support (shortened for brevity - includes key new FAQs) -->
+      
+      <!-- German -->
       <div class="lang lang-de hidden">
-        <h2>Support & Hilfe</h2>
-        <p>Benötigen Sie Hilfe mit PhotoMetaPro? Wir sind für Sie da.</p>
+        <h2>PhotoMetaPro - Professionelle Metadatenverwaltung für macOS</h2>
+        <p>Der professionelle Batch-Metadaten-Editor für Fotografen.</p>
         
-        <h3>Kontakt</h3>
-        <p>E-Mail: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
-        <p>Wir antworten normalerweise innerhalb von 24-48 Stunden.</p>
-        
-        <h3>Häufig Gestellte Fragen</h3>
-        
-        <div class="faq-item">
-          <strong>Wie füge ich Fotos zur Verarbeitung hinzu?</strong>
-          <p>Klicken Sie auf "Fotos hinzufügen" (⌘O) oder ziehen Sie Fotos direkt in das Hauptfenster. PhotoMetaPro unterstützt JPEG, PNG, TIFF, RAW (CR2, CR3, NEF, ARW, DNG, ORF, RAF, RW2) und HEIC-Formate.</p>
+        <div class="disclaimer">
+          <strong>⚠️ Wichtig - Bitte Lesen</strong>
+          <p><strong>Backup:</strong> Sichern Sie immer Originalfotos. Originale werden nie geändert.</p>
+          <p><strong>Kompatibilität:</strong> Formatunterstützung hängt von macOS ab. RAW-Formate möglicherweise eingeschränkt.</p>
+          <p><strong>Updates:</strong> Nach Ermessen des Entwicklers. Keine Garantie.</p>
         </div>
         
-        <div class="faq-item">
-          <strong>Was ist Schnellbearbeitung und wie verwende ich sie?</strong>
-          <p>Mit der Schnellbearbeitung können Sie Metadaten für einzelne Fotos ohne Batch-Verarbeitung ändern. Klicken Sie mit der rechten Maustaste auf eine Miniaturansicht und wählen Sie "Metadaten schnell bearbeiten".</p>
+        <h3>Hauptfunktionen</h3>
+        <div class="feature-grid">
+          <div class="feature-card"><h4>🚀 Batch-Verarbeitung</h4><p>Unbegrenzt Fotos mit Echtzeit-Fortschritt.</p></div>
+          <div class="feature-card"><h4>🔄 Rückgängig/Wiederholen</h4><p>20-stufiger Verlauf (⌘Z/⌘⇧Z).</p></div>
+          <div class="feature-card"><h4>⚡ Absturzsicherung</h4><p>Auto-Speichern alle 10 Fotos.</p></div>
+          <div class="feature-card"><h4>📋 Vorlagen</h4><p>Speichern, Import/Export.</p></div>
+          <div class="feature-card"><h4>🌍 GPS + Geocoding</h4><p>Koordinaten zu Ortsnamen.</p></div>
+          <div class="feature-card"><h4>✏️ Schnellbearbeitung</h4><p>Rechtsklick für sofortige Bearbeitung.</p></div>
+          <div class="feature-card"><h4>🎯 Filter</h4><p>Nach Status auswählen.</p></div>
+          <div class="feature-card"><h4>📊 Statistiken</h4><p>Erfolgsraten exportieren.</p></div>
+          <div class="feature-card"><h4>✅ Validierung</h4><p>Speicherplatzprüfung.</p></div>
+          <div class="feature-card"><h4>🔒 Privatsphäre</h4><p>Nur lokale Verarbeitung.</p></div>
+          <div class="feature-card"><h4>💾 Flexible Ausgabe</h4><p>5 Dateinamensmuster.</p></div>
+          <div class="feature-card"><h4>🌐 Zweisprachig</h4><p>Deutsch/Englisch Auto-Erkennung.</p></div>
         </div>
         
-        <div class="faq-item">
-          <strong>Wie funktioniert GPS-Reverse-Geocoding?</strong>
-          <p>Wenn Sie GPS-Koordinaten in Ihrer Vorlage eingeben, klicken Sie auf "Ortsnamen abrufen", um sie automatisch in einen lesbaren Ort umzuwandeln (z. B. "Berlin, Deutschland").</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>Was sind Auswahlfilter und wie verwende ich sie?</strong>
-          <p>Verwenden Sie das Menü "Nach Status auswählen", um Fotos nach ihrem Verarbeitungsstatus zu filtern: Ausstehend, Abgeschlossen oder Fehlgeschlagen auswählen.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>Was bedeuten die farbigen Rahmen an den Fotos?</strong>
-          <p>Grau (ausstehend), Blau (wird verarbeitet), Grün (erfolgreich), Rot (fehlgeschlagen). Bewegen Sie den Mauszeiger über fehlgeschlagene Fotos, um die Fehlermeldung zu sehen.</p>
-        </div>
-        
-        <h3>Systemanforderungen</h3>
-        <ul>
-          <li>macOS 14.6 oder neuer</li>
-          <li>Apple Silicon oder Intel Prozessor</li>
-          <li>Ausreichend Speicherplatz für verarbeitete Fotos</li>
-        </ul>
-      </div>
-      <!-- Spanish Support (shortened for brevity - includes key new FAQs) -->
-      <div class="lang lang-es hidden">
-        <h2>Soporte y Ayuda</h2>
-        <p>¿Necesitas ayuda con PhotoMetaPro? Estamos aquí para asistirte.</p>
-        
-        <h3>Contacto</h3>
-        <p>Email: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
-        <p>Normalmente respondemos en 24-48 horas.</p>
-        
-        <h3>Preguntas Frecuentes</h3>
-        
-        <div class="faq-item">
-          <strong>¿Cómo agrego fotos para procesar?</strong>
-          <p>Haz clic en "Agregar Fotos" (⌘O) o arrastra fotos directamente a la ventana principal. PhotoMetaPro soporta JPEG, PNG, TIFF, RAW (CR2, CR3, NEF, ARW, DNG, ORF, RAF, RW2) y HEIC.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>¿Qué es Edición Rápida y cómo la uso?</strong>
-          <p>La Edición Rápida te permite modificar metadatos de fotos individuales sin procesamiento por lotes. Haz clic derecho en cualquier miniatura y selecciona "Edición Rápida de Metadatos".</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>¿Cómo funciona la geocodificación inversa GPS?</strong>
-          <p>Cuando ingresas coordenadas GPS en tu plantilla, haz clic en "Obtener Nombre de Ubicación" para convertirlas automáticamente en una ubicación legible (ej: "Madrid, España").</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>¿Qué son los filtros de selección y cómo los uso?</strong>
-          <p>Usa el menú "Seleccionar por Estado" para filtrar fotos por su estado de procesamiento: Seleccionar Pendientes, Completadas o Fallidas.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>¿Qué significan los bordes de colores en las fotos?</strong>
-          <p>Gris (pendiente), Azul (procesando), Verde (completado exitosamente), Rojo (fallido con error). Pasa el cursor sobre fotos fallidas para ver el mensaje de error.</p>
-        </div>
-        
-        <h3>Requisitos del Sistema</h3>
-        <ul>
-          <li>macOS 14.6 o posterior</li>
-          <li>Procesador Apple Silicon o Intel</li>
-          <li>Espacio suficiente en disco para fotos procesadas</li>
-        </ul>
+        <a href="https://apps.apple.com/app/photometapro/id6757343410" class="button">Im Mac App Store</a>
       </div>
     </div>
+    
+    <!-- SUPPORT SECTION -->
+    <div id="support" class="section hidden">
+      <div class="lang lang-en">
+        <h2>Support</h2>
+        <p>Email: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
+        <p>Response: 24-48 hours</p>
+        
+        <h3>FAQ</h3>
+        <div class="faq-item"><strong>Add photos?</strong><p>⌘O or drag-and-drop. Supports JPEG, PNG, TIFF, HEIC, many RAW formats.</p></div>
+        <div class="faq-item"><strong>Undo/Redo?</strong><p>⌘Z undo, ⌘⇧Z redo. 20 levels.</p></div>
+        <div class="faq-item"><strong>Crash recovery?</strong><p>Auto-saves every 10 photos. Resume on relaunch.</p></div>
+        <div class="faq-item"><strong>Pause processing?</strong><p>Click Cancel → 3 options: skip current, pause, stop all.</p></div>
+        <div class="faq-item"><strong>Quick Edit?</strong><p>Right-click photo → Quick Edit. Edit copyright, keywords, GPS, location.</p></div>
+        <div class="faq-item"><strong>Originals modified?</strong><p>Never. Processed files saved to separate directory.</p></div>
+        
+        <div class="disclaimer"><strong>Support Disclaimer:</strong> Best-effort basis. Response times vary. No guaranteed timeline for bug fixes or features.</div>
+      </div>
+      
+      <div class="lang lang-de hidden">
+        <h2>Support</h2>
+        <p>E-Mail: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
+        <p>Antwort: 24-48 Stunden</p>
+        
+        <h3>FAQ</h3>
+        <div class="faq-item"><strong>Fotos hinzufügen?</strong><p>⌘O oder Drag-and-Drop.</p></div>
+        <div class="faq-item"><strong>Widerrufen?</strong><p>⌘Z widerrufen, ⌘⇧Z wiederholen. 20 Stufen.</p></div>
+        <div class="faq-item"><strong>Absturzsicherung?</strong><p>Auto-Speichern alle 10 Fotos.</p></div>
+      </div>
+    </div>
+    
     <!-- PRIVACY SECTION -->
     <div id="privacy" class="section hidden">
-      <!-- English -->
       <div class="lang lang-en">
         <h2>Privacy Policy</h2>
-        
         <h3>No Data Collection</h3>
-        <p>PhotoMetaPro does not collect, transmit, or share any personal data, photos, or usage information. All processing happens entirely on your Mac.</p>
+        <p>PhotoMetaPro does NOT collect, transmit, or share ANY data. All processing is local on your Mac.</p>
         
-        <h3>Local Processing Only</h3>
-        <p>Your photos never leave your device. PhotoMetaPro processes all images locally on your Mac. No images, metadata, or any other data is uploaded to servers, transmitted over the internet, or shared with third parties.</p>
-        
-        <h3>What is Stored Locally</h3>
-        <p>PhotoMetaPro stores the following data locally on your Mac using macOS UserDefaults:</p>
+        <h3>What's Stored Locally</h3>
         <ul>
-          <li><strong>Saved templates:</strong> Your metadata configurations (copyright text, keywords, client info, GPS coordinates, custom fields, output settings)</li>
-          <li><strong>Recent templates list:</strong> IDs of your 3 most recently used templates</li>
-          <li><strong>Output directory bookmarks:</strong> Secure references to your chosen output folders</li>
-          <li><strong>Recent output directories:</strong> Paths to your 3 most recently used output locations</li>
-          <li><strong>Processing settings:</strong> JPEG quality, file naming strategy, filename pattern preferences</li>
-          <li><strong>Processing logs:</strong> Filenames, timestamps, and processing status for operations you've performed</li>
-          <li><strong>Application preferences:</strong> Window size/position, welcome screen settings, language preference</li>
-        </ul>
-        <p>This data is stored exclusively on your Mac and is never transmitted anywhere. It's used only to provide features like template management, recent items access, and processing history.</p>
-        
-        <h3>File Access Permissions</h3>
-        <p>PhotoMetaPro requires macOS permissions to:</p>
-        <ul>
-          <li><strong>Read photos:</strong> To access and process the images you explicitly select through the file picker or drag-and-drop</li>
-          <li><strong>Write to directories:</strong> To save processed photos to your chosen output location</li>
-          <li><strong>Security-scoped bookmarks:</strong> To remember your output directory selection between app launches</li>
-        </ul>
-        <p>You maintain complete control over which files and folders PhotoMetaPro can access through macOS's App Sandbox security features. PhotoMetaPro can only access files and folders you explicitly grant permission to.</p>
-        
-        <h3>No Network Access</h3>
-        <p>PhotoMetaPro does not connect to the internet or any external services. The app operates completely offline. The only exception is the optional GPS reverse geocoding feature, which uses Apple's system-level CoreLocation framework to convert coordinates to location names - this is handled by macOS itself, not by PhotoMetaPro.</p>
-        
-        <h3>No Analytics, Tracking, or Telemetry</h3>
-        <p>We do not collect:</p>
-        <ul>
-          <li>Usage analytics or statistics</li>
-          <li>Crash reports or diagnostic data</li>
-          <li>Feature usage tracking</li>
-          <li>Error reporting</li>
-          <li>Performance metrics</li>
-          <li>Any identifiable information</li>
-        </ul>
-        <p>PhotoMetaPro has no ability to monitor your usage, track your behavior, or report any information about you or your photos.</p>
-        
-        <h3>Your Complete Control</h3>
-        <p>You have full control over all data:</p>
-        <ul>
-          <li><strong>Delete templates:</strong> Click the trash icon next to any template to permanently remove it</li>
-          <li><strong>Clear logs:</strong> One-click clearing of all processing logs from the log viewer</li>
-          <li><strong>Reset preferences:</strong> Uninstall PhotoMetaPro to completely remove all locally stored data</li>
-          <li><strong>Export data:</strong> Export templates and logs as JSON files for backup or transfer</li>
-        </ul>
-        <p>When you uninstall PhotoMetaPro by deleting it from your Applications folder, all associated data stored in UserDefaults is automatically removed by macOS.</p>
-        
-        <h3>Security Best Practices</h3>
-        <p>PhotoMetaPro follows Apple's security guidelines:</p>
-        <ul>
-          <li><strong>App Sandbox:</strong> Enabled for secure, isolated operation</li>
-          <li><strong>Security-scoped bookmarks:</strong> Safe, encrypted references to user-selected directories</li>
-          <li><strong>Minimal permissions:</strong> Only requests necessary file access permissions</li>
-          <li><strong>Code signing:</strong> Digitally signed by Apple to verify authenticity</li>
-          <li><strong>Notarization:</strong> Verified by Apple for malware and security issues</li>
-          <li><strong>No third-party code:</strong> No analytics SDKs, tracking libraries, or external dependencies</li>
+          <li>Templates (copyright, keywords, settings)</li>
+          <li>Output directory bookmarks</li>
+          <li>Processing logs</li>
+          <li>Crash recovery state (auto-deleted after 24h)</li>
+          <li>App preferences</li>
         </ul>
         
-        <h3>Children's Privacy</h3>
-        <p>PhotoMetaPro does not knowingly collect any information from children. The app is designed for professional and personal photo management and does not have features directed at children.</p>
+        <h3>Network</h3>
+        <p>No internet except optional GPS geocoding (uses Apple's CoreLocation).</p>
         
-        <h3>Third-Party Services</h3>
-        <p>PhotoMetaPro does not integrate with, share data with, or communicate with any third-party services, analytics platforms, advertising networks, or external APIs (except for Apple's system-level CoreLocation for optional GPS reverse geocoding).</p>
-        
-        <h3>Data Retention</h3>
-        <p>All data is retained only on your local device for as long as you keep the app installed. You can delete any data at any time through the app interface. Uninstalling the app removes all associated data.</p>
-        
-        <h3>Updates to This Policy</h3>
-        <p>We may update this privacy policy to reflect app updates or clarify our practices. Any changes will be posted on this page with an updated date. The core principle will never change: PhotoMetaPro does not collect, transmit, or share your data.</p>
-        
-        <h3>Your Rights</h3>
-        <p>Since PhotoMetaPro does not collect or transmit any personal data, there is no data to access, correct, or delete on our end. All your data remains on your device under your control.</p>
-        
-        <h3>Contact</h3>
-        <p>If you have questions about privacy or data handling, contact us at: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
-        
-        <p><strong>Summary:</strong> PhotoMetaPro is a privacy-first application. Your photos stay on your device, your data is never transmitted, and we have no access to any of your information.</p>
+        <h3>No Analytics</h3>
+        <p>Zero tracking, crash reports, telemetry, or usage statistics.</p>
         
         <p><em>Last updated: January 2025</em></p>
       </div>
-      <!-- German Privacy (key sections) -->
+      
       <div class="lang lang-de hidden">
-        <h2>Datenschutzerklärung</h2>
-        
+        <h2>Datenschutz</h2>
         <h3>Keine Datenerfassung</h3>
-        <p>PhotoMetaPro sammelt, überträgt oder teilt keine persönlichen Daten, Fotos oder Nutzungsinformationen. Alle Verarbeitung erfolgt vollständig auf Ihrem Mac.</p>
+        <p>PhotoMetaPro sammelt KEINE Daten. Alle Verarbeitung lokal.</p>
         
-        <h3>Nur Lokale Verarbeitung</h3>
-        <p>Ihre Fotos verlassen niemals Ihr Gerät. PhotoMetaPro verarbeitet alle Bilder lokal auf Ihrem Mac. Es werden keine Bilder, Metadaten oder andere Daten auf Server hochgeladen, über das Internet übertragen oder mit Dritten geteilt.</p>
-        
-        <h3>Was Lokal Gespeichert Wird</h3>
-        <p>PhotoMetaPro speichert folgende Daten lokal auf Ihrem Mac:</p>
+        <h3>Lokal Gespeichert</h3>
         <ul>
-          <li>Gespeicherte Vorlagen (Metadatenkonfigurationen)</li>
-          <li>Liste zuletzt verwendeter Vorlagen</li>
-          <li>Ausgabeverzeichnis-Lesezeichen</li>
-          <li>Zuletzt verwendete Ausgabeverzeichnisse</li>
-          <li>Verarbeitungseinstellungen</li>
-          <li>Verarbeitungsprotokolle</li>
-          <li>Anwendungspräferenzen</li>
+          <li>Vorlagen</li>
+          <li>Ausgabeverzeichnisse</li>
+          <li>Protokolle</li>
+          <li>Wiederherstellungsstatus (24h)</li>
+          <li>Präferenzen</li>
         </ul>
         
-        <h3>Kein Netzwerkzugriff</h3>
-        <p>PhotoMetaPro verbindet sich nicht mit dem Internet oder externen Diensten. Die App arbeitet vollständig offline.</p>
+        <h3>Kein Tracking</h3>
+        <p>Keine Analysen, Berichte oder Statistiken.</p>
         
-        <h3>Keine Analysen, Tracking oder Telemetrie</h3>
-        <p>Wir sammeln keine Nutzungsanalysen, Absturzberichte, Tracking-Daten oder identifizierbare Informationen.</p>
-        
-        <h3>Kontakt</h3>
-        <p>Bei Fragen zum Datenschutz: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
-        
-        <p><em>Zuletzt aktualisiert: Januar 2025</em></p>
-      </div>
-      <!-- Spanish Privacy (key sections) -->
-      <div class="lang lang-es hidden">
-        <h2>Política de Privacidad</h2>
-        
-        <h3>No se Recopilan Datos</h3>
-        <p>PhotoMetaPro no recopila, transmite ni comparte ningún dato personal, fotos o información de uso. Todo el procesamiento ocurre completamente en tu Mac.</p>
-        
-        <h3>Solo Procesamiento Local</h3>
-        <p>Tus fotos nunca salen de tu dispositivo. PhotoMetaPro procesa todas las imágenes localmente en tu Mac. No se suben imágenes, metadatos ni ningún otro dato a servidores, no se transmite por internet ni se comparte con terceros.</p>
-        
-        <h3>Qué se Almacena Localmente</h3>
-        <p>PhotoMetaPro almacena los siguientes datos localmente en tu Mac:</p>
-        <ul>
-          <li>Plantillas guardadas (configuraciones de metadatos)</li>
-          <li>Lista de plantillas recientes</li>
-          <li>Marcadores de directorio de salida</li>
-          <li>Directorios de salida recientes</li>
-          <li>Configuraciones de procesamiento</li>
-          <li>Registros de procesamiento</li>
-          <li>Preferencias de la aplicación</li>
-        </ul>
-        
-        <h3>Sin Acceso a Red</h3>
-        <p>PhotoMetaPro no se conecta a internet ni a ningún servicio externo. La aplicación opera completamente sin conexión.</p>
-        
-        <h3>Sin Análisis, Rastreo o Telemetría</h3>
-        <p>No recopilamos análisis de uso, informes de fallos, datos de rastreo o información identificable.</p>
-        
-        <h3>Contacto</h3>
-        <p>Para preguntas sobre privacidad: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
-        
-        <p><em>Última actualización: Enero 2025</em></p>
+        <p><em>Stand: Januar 2025</em></p>
       </div>
     </div>
   </div>
   <footer>
-    © 2025 Andres Wetzel Bagolini. All rights reserved. | Contact: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a>
+    © 2025 Andres Wetzel Bagolini | <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a>
   </footer>
 </body>
 </html>
