@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>PhotoMetaPro - Professional Photo Metadata Management</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="PhotoMetaPro: Professional batch metadata editor for macOS. AI keywords, stock readiness scoring, two-camera sync, GPS, copyright and delivery packaging.">
+  <meta name="description" content="PhotoMetaPro: Professional batch metadata editor for macOS. AI keywords, smart caption generator, duplicate detector, stock readiness scoring, two-camera sync, GPS, copyright and delivery packaging.">
   <link rel="icon" href="logo.png" type="image/x-icon">
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #333; }
@@ -29,6 +29,8 @@
     .feature-card { background: #f8f9fa; padding: 18px; border-radius: 10px; border: 2px solid #e9ecef; }
     .feature-card h4 { color: #667eea; margin-top: 0; margin-bottom: 8px; }
     .feature-card p { margin: 0; font-size: 0.95em; }
+    .feature-card.new-feature { border-color: #764ba2; background: #faf8ff; }
+    .feature-card.new-feature h4::after { content: " ✦ New"; font-size: 0.7em; color: #764ba2; font-weight: 700; vertical-align: middle; }
     .launch-banner { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 16px 22px; border-radius: 10px; margin-bottom: 28px; font-size: 1.05em; font-weight: 600; letter-spacing: 0.2px; }
     .note { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 5px; }
     .note strong { color: #856404; }
@@ -36,13 +38,17 @@
     .disclaimer strong { color: #721c24; }
     .hero-tagline { font-size: 1.15em; color: #555; margin-bottom: 10px; }
     .section-intro { font-size: 1.05em; margin-bottom: 30px; color: #444; }
+    .shortcut-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    .shortcut-table th { background: #667eea; color: white; padding: 8px 12px; text-align: left; }
+    .shortcut-table td { padding: 7px 12px; border-bottom: 1px solid #e9ecef; }
+    .shortcut-table tr:nth-child(even) td { background: #f8f9fa; }
+    .shortcut-table code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
     @media (max-width: 600px) {
       header { flex-direction: column; align-items: flex-start; }
       nav { margin: 8px 0; }
       h2 { font-size: 1.5em; }
     }
   </style>
-
   <script>
     function switchLanguage(lang) {
       document.querySelectorAll('.lang').forEach(el => el.classList.add('hidden'));
@@ -69,7 +75,6 @@
   </script>
 </head>
 <body>
-
 <header>
   <h1>
     <img src="logo.png" alt="PhotoMetaPro" style="width:32px;height:32px;margin-right:10px;">
@@ -87,7 +92,6 @@
     </select>
   </div>
 </header>
-
 <div class="container">
 
   <!-- ═══════════════════════════════════════════ HOME ═══════════════════════════════════════════ -->
@@ -97,7 +101,7 @@
     <div class="lang lang-en">
       <h2>PhotoMetaPro — Professional Photo Metadata for macOS</h2>
       <div class="launch-banner">🚀 Now available on the Mac App Store — download today and take control of your photo metadata.</div>
-      <p class="hero-tagline">The professional batch metadata editor for macOS photographers. Copyright, keywords, GPS, on-device AI keyword suggestions, stock agency readiness scoring, two-camera time sync, delivery packaging and much more — all in one app, all processed locally on your Mac.</p>
+      <p class="hero-tagline">The professional batch metadata editor for macOS photographers. Copyright, keywords, GPS, on-device AI keyword suggestions, smart caption generator, duplicate detector, stock agency readiness scoring, two-camera time sync, delivery packaging and much more — all in one app, all processed locally on your Mac.</p>
 
       <div class="disclaimer">
         <strong>⚠️ Important — Please Read Before Use</strong>
@@ -110,19 +114,22 @@
       <h3>Features</h3>
       <div class="feature-grid">
         <div class="feature-card"><h4>🚀 Batch Processing</h4><p>Process unlimited photos with drag-and-drop, real-time progress, pause/resume and detailed statistics.</p></div>
-        <div class="feature-card"><h4>🤖 AI Keyword Suggestions</h4><p>On-device image analysis using Apple Vision. Smart keyword recommendations with no internet, no subscription, no cost per use.</p></div>
-        <div class="feature-card"><h4>📊 Stock Readiness Score</h4><p>Check your metadata against Getty Images, Shutterstock and Adobe Stock requirements. See pass, warn or fail for every field before you submit.</p></div>
+        <div class="feature-card"><h4>🤖 AI Keyword Suggestions</h4><p>On-device image analysis using Apple Vision. Smart keyword recommendations in your system language — no internet, no subscription, no cost per use.</p></div>
+        <div class="feature-card new-feature"><h4>💬 Smart Caption Generator</h4><p>AI drafts a natural-language caption for each photo using on-device Vision. Edit, accept, and save directly to IPTC Description in the original file without re-compression.</p></div>
+        <div class="feature-card new-feature"><h4>🔍 Duplicate Detector</h4><p>Find near-identical photos using on-device perceptual fingerprinting. Three sensitivity levels. Side-by-side preview with similarity score. Remove duplicates from the queue without deleting files.</p></div>
+        <div class="feature-card"><h4>📊 Stock Readiness Score</h4><p>Check your metadata template against Getty Images, Shutterstock and Adobe Stock requirements. New: also scan actual embedded metadata in your photo files to verify what's really written.</p></div>
         <div class="feature-card"><h4>🎵 Two-Camera Time Sync</h4><p>Fix timestamp drift between cameras shot simultaneously. Align photo streams from two bodies perfectly.</p></div>
         <div class="feature-card"><h4>📦 Delivery Package</h4><p>Export client-ready packages with optional watermarking, GPS stripping, folder structure, and an auto-generated file manifest.</p></div>
         <div class="feature-card"><h4>🔖 Keyword Library</h4><p>Build a reusable keyword collection and apply entire sets across projects instantly.</p></div>
         <div class="feature-card"><h4>👁 Metadata Preview</h4><p>Review a full diff of every metadata change before committing. No surprises.</p></div>
         <div class="feature-card"><h4>🛰 GPX Track Import</h4><p>Import GPS routes from .gpx files and tag an entire shoot's location data automatically.</p></div>
-        <div class="feature-card"><h4>📁 Watch Folder</h4><p>Drop photos into a monitored folder and they are processed automatically as they arrive.</p></div>
+        <div class="feature-card"><h4>📁 Watch Folder</h4><p>Drop photos into a monitored folder and they are automatically loaded and optionally processed with your active template as they arrive.</p></div>
         <div class="feature-card"><h4>🕐 Date &amp; Time Shift</h4><p>Correct timestamp drift across entire shoots in seconds.</p></div>
         <div class="feature-card"><h4>✏️ Batch Rename</h4><p>Rename hundreds of files with flexible patterns in one pass.</p></div>
         <div class="feature-card"><h4>🗂 XMP Sidecar</h4><p>Write metadata to .xmp sidecar files for RAW formats that don't support embedded metadata.</p></div>
         <div class="feature-card"><h4>📋 Smart Templates</h4><p>Create reusable templates per client or project. Import/export for backup or team sharing. Templates remember all output settings.</p></div>
         <div class="feature-card"><h4>🌍 GPS &amp; Geocoding</h4><p>Add coordinates manually or from GPX tracks. Reverse geocoding converts coordinates to readable place names automatically.</p></div>
+        <div class="feature-card new-feature"><h4>⌨️ Full Tools Menu</h4><p>Every tool is now accessible from the macOS menu bar (Tools menu, between View and Window) with dedicated keyboard shortcuts for power users who prefer menus over toolbar buttons.</p></div>
         <div class="feature-card"><h4>✏️ Quick Edit</h4><p>Right-click any photo for instant metadata editing without running a full batch.</p></div>
         <div class="feature-card"><h4>🎯 Smart Filters</h4><p>Filter by pending, completed or failed. Color-coded borders for instant status overview.</p></div>
         <div class="feature-card"><h4>💾 Flexible Output</h4><p>Three filename patterns, JPEG quality 70–100%, auto-backup of originals, conflict resolution, preserve original file dates.</p></div>
@@ -156,7 +163,7 @@
     <div class="lang lang-de hidden">
       <h2>PhotoMetaPro — Professionelle Foto-Metadaten für macOS</h2>
       <div class="launch-banner">🚀 Jetzt im Mac App Store erhältlich — jetzt laden und die Kontrolle über deine Foto-Metadaten übernehmen.</div>
-      <p class="hero-tagline">Der professionelle Batch-Metadaten-Editor für macOS-Fotografen. Copyright, Keywords, GPS, KI-Keyword-Vorschläge auf dem Gerät, Stock-Readiness-Score, Zwei-Kamera-Zeitsync, Lieferpaket-Erstellung und vieles mehr — alles in einer App, alles lokal auf deinem Mac verarbeitet.</p>
+      <p class="hero-tagline">Der professionelle Batch-Metadaten-Editor für macOS-Fotografen. Copyright, Keywords, GPS, KI-Keyword-Vorschläge auf dem Gerät, Smart Caption Generator, Duplikat-Erkennung, Stock-Readiness-Score, Zwei-Kamera-Zeitsync, Lieferpaket-Erstellung und vieles mehr — alles in einer App, alles lokal auf deinem Mac verarbeitet.</p>
 
       <div class="disclaimer">
         <strong>⚠️ Wichtig — Bitte vor der Nutzung lesen</strong>
@@ -169,19 +176,22 @@
       <h3>Funktionen</h3>
       <div class="feature-grid">
         <div class="feature-card"><h4>🚀 Batch-Verarbeitung</h4><p>Unbegrenzt Fotos per Drag-and-Drop verarbeiten, mit Echtzeit-Fortschritt, Pause/Fortsetzen und detaillierten Statistiken.</p></div>
-        <div class="feature-card"><h4>🤖 KI-Keyword-Vorschläge</h4><p>Bildanalyse per Apple Vision direkt auf dem Gerät — kein Internet, kein Abo, keine Zusatzkosten.</p></div>
-        <div class="feature-card"><h4>📊 Stock-Readiness-Score</h4><p>Metadaten gegen die Anforderungen von Getty Images, Shutterstock und Adobe Stock prüfen. Für jedes Feld sofort sehen, ob es bestanden, gewarnt oder fehlgeschlagen ist.</p></div>
+        <div class="feature-card"><h4>🤖 KI-Keyword-Vorschläge</h4><p>Bildanalyse per Apple Vision direkt auf dem Gerät — in der Systemsprache, kein Internet, kein Abo, keine Zusatzkosten.</p></div>
+        <div class="feature-card new-feature"><h4>💬 Smart Caption Generator</h4><p>Die KI entwirft per Apple Vision lokal auf dem Gerät eine natürlichsprachliche Bildunterschrift für jedes Foto. Bearbeiten, akzeptieren und direkt als IPTC-Beschreibung in die Originaldatei speichern — ohne Neukomprimierung.</p></div>
+        <div class="feature-card new-feature"><h4>🔍 Duplikat-Erkennung</h4><p>Nahezu identische Fotos per visuellem Fingerabdruck auf dem Gerät finden. Drei Empfindlichkeitsstufen. Nebeneinander-Vorschau mit Ähnlichkeitswert. Duplikate aus der Warteschlange entfernen, ohne Dateien zu löschen.</p></div>
+        <div class="feature-card"><h4>📊 Stock-Readiness-Score</h4><p>Metadaten-Vorlage gegen Getty Images, Shutterstock und Adobe Stock prüfen. Neu: auch tatsächlich eingebettete Metadaten in Fotodateien scannen und prüfen, was wirklich geschrieben wurde.</p></div>
         <div class="feature-card"><h4>🎵 Zwei-Kamera-Zeitsync</h4><p>Zeitstempel-Versatz zwischen gleichzeitig genutzten Kameras beheben und Foto-Streams zweier Geräte exakt angleichen.</p></div>
         <div class="feature-card"><h4>📦 Lieferpaket erstellen</h4><p>Kundenpakete mit Wasserzeichen, GPS-Entfernung, Ordnerstruktur und automatischem Dateimanifest exportieren.</p></div>
         <div class="feature-card"><h4>🔖 Keyword-Bibliothek</h4><p>Wiederverwendbare Keyword-Sammlung aufbauen und ganze Sets projektübergreifend sofort anwenden.</p></div>
         <div class="feature-card"><h4>👁 Metadaten-Vorschau</h4><p>Alle Änderungen als vollständigen Diff prüfen, bevor sie übernommen werden. Keine Überraschungen.</p></div>
         <div class="feature-card"><h4>🛰 GPX-Track-Import</h4><p>GPS-Routen aus .gpx-Dateien importieren und einen ganzen Shoot automatisch geotaggen.</p></div>
-        <div class="feature-card"><h4>📁 Watch-Ordner</h4><p>Fotos in einen überwachten Ordner legen und sie werden automatisch verarbeitet sobald sie eintreffen.</p></div>
+        <div class="feature-card"><h4>📁 Watch-Ordner</h4><p>Fotos in einen überwachten Ordner legen — sie werden automatisch geladen und optional mit der aktiven Vorlage verarbeitet, sobald sie eintreffen.</p></div>
         <div class="feature-card"><h4>🕐 Datum &amp; Zeit verschieben</h4><p>Zeitstempel-Abweichungen eines ganzen Shoots in Sekunden korrigieren.</p></div>
         <div class="feature-card"><h4>✏️ Stapelumbenennung</h4><p>Hunderte Dateien mit flexiblen Mustern in einem Durchgang umbenennen.</p></div>
         <div class="feature-card"><h4>🗂 XMP-Sidecar</h4><p>Metadaten in .xmp-Sidecar-Dateien schreiben für RAW-Formate ohne eingebettete Metadaten-Unterstützung.</p></div>
         <div class="feature-card"><h4>📋 Vorlagen-System</h4><p>Wiederverwendbare Vorlagen pro Kunde oder Projekt. Import/Export für Backup und Team-Sharing. Vorlagen merken sich alle Ausgabe-Einstellungen.</p></div>
         <div class="feature-card"><h4>🌍 GPS &amp; Geocoding</h4><p>Koordinaten manuell oder per GPX-Track hinzufügen. Reverse Geocoding wandelt Koordinaten automatisch in lesbare Ortsnamen um.</p></div>
+        <div class="feature-card new-feature"><h4>⌨️ Vollständiges Werkzeugmenü</h4><p>Alle Werkzeuge sind jetzt über die macOS-Menüleiste erreichbar (Menü „Werkzeuge" zwischen „Darstellung" und „Fenster") — mit dedizierten Tastaturkürzeln für Power-User, die Menüs gegenüber Symbolleistenschaltflächen bevorzugen.</p></div>
         <div class="feature-card"><h4>✏️ Schnellbearbeitung</h4><p>Rechtsklick auf ein Foto für sofortige Metadaten-Bearbeitung ohne Stapelverarbeitung.</p></div>
         <div class="feature-card"><h4>🎯 Intelligente Filter</h4><p>Nach ausstehend, abgeschlossen oder fehlerhaft filtern. Farbige Rahmen für sofortige Statusübersicht.</p></div>
         <div class="feature-card"><h4>💾 Flexible Ausgabe</h4><p>Drei Dateinamen-Muster, JPEG-Qualität 70–100 %, Auto-Backup der Originale, Konfliktlösung, Originaldaten erhalten.</p></div>
@@ -219,32 +229,62 @@
     <div class="lang lang-en">
       <h2>Support</h2>
       <p class="section-intro">PhotoMetaPro is an independent, self-funded project. The FAQ below covers the most common questions and is the primary support resource. There is no dedicated support channel. For inquiries, contact: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
-
       <div class="disclaimer"><strong>Please note:</strong> PhotoMetaPro is an independent project developed alongside other professional commitments. There is no dedicated support channel; the FAQ below is the primary resource. Future updates, compatibility, and new features are at the developer's discretion and are not guaranteed.</div>
 
       <h3>Frequently Asked Questions</h3>
 
       <div class="faq-item"><strong>How do I add photos?</strong><p>Use ⌘O to open a file picker, or drag and drop photos directly into the app. Supported formats include JPEG, PNG, TIFF, HEIC, and many RAW formats (compatibility varies by macOS version).</p></div>
 
-      <div class="faq-item"><strong>Are my originals ever modified?</strong><p>Never. PhotoMetaPro always writes processed files to a separate output directory. Your originals remain completely untouched.</p></div>
+      <div class="faq-item"><strong>Are my originals ever modified?</strong><p>Never. PhotoMetaPro always writes processed files to a separate output directory. Your originals remain completely untouched. The only exception is the Smart Caption Generator, which writes IPTC Description text directly into the original file using a lossless metadata-only write — no image data is re-compressed.</p></div>
 
-      <div class="faq-item"><strong>How does AI keyword suggestion work?</strong><p>PhotoMetaPro uses Apple's Vision framework to analyse your photos directly on your Mac — no internet connection, no subscription and no cost per use. It suggests up to 15 relevant keywords based on the image content, filtered to exclude words already in your template.</p></div>
+      <div class="faq-item"><strong>How does AI keyword suggestion work?</strong><p>PhotoMetaPro uses Apple's Vision framework to analyse your photos directly on your Mac — no internet connection, no subscription and no cost per use. It suggests up to 15 relevant keywords based on the image content, filtered to exclude words already in your template. Keywords are generated in your system language: if your Mac is set to German, suggestions appear in German.</p></div>
 
-      <div class="faq-item"><strong>What is the Stock Readiness Score?</strong><p>It checks your template's metadata (title, keywords, copyright, description and more) against the submission requirements of major stock agencies. Each field is shown as pass, warn or fail so you can fix gaps before submitting your photos.</p></div>
+      <div class="faq-item"><strong>What is the Smart Caption Generator?</strong><p>The Smart Caption Generator (⌥⌘A or the speech bubble toolbar button) uses Apple Vision to analyse each photo's scene, subjects and face count, then drafts a natural-language caption sentence for every image entirely on-device. Captions appear in an editable text field — review, tweak, and accept the ones you want. "Save Accepted Captions" writes the text directly into the IPTC Description (CaptionAbstract) field of each original file without re-compressing the image. Captions are generated in German when the system language is German.</p></div>
+
+      <div class="faq-item"><strong>What is the Duplicate Detector?</strong><p>The Duplicate Detector (⌥⌘U or the toolbar button) uses on-device perceptual fingerprinting (Apple's Vision framework) to find near-identical photos in your loaded queue. Three sensitivity levels let you tune results: Strict catches only near-pixel-perfect copies, Balanced finds the same scene shot twice, and Loose surfaces visually similar images. Duplicate pairs appear side-by-side with a coloured similarity ring. Use "Remove from list" to drop one copy from the processing queue — no files are deleted from your disk. Sensitivity can be adjusted instantly without rescanning.</p></div>
+
+      <div class="faq-item"><strong>What is the Stock Readiness Score?</strong><p>It checks your metadata against the submission requirements of major stock agencies. Two modes are available: <em>Template Score</em> evaluates your active template setup and shows which fields are missing or weak before you process any photos. <em>Check Photos</em> reads the metadata actually embedded in your selected photo files and shows which individual photos pass, warn or fail — useful for verifying that metadata was correctly applied after processing.</p></div>
 
       <div class="faq-item"><strong>How does Two-Camera Time Sync work?</strong><p>Select one reference photo from each camera. PhotoMetaPro calculates the exact timestamp offset between the two cameras and applies the correction to all photos from the secondary camera, so both streams are perfectly aligned.</p></div>
 
       <div class="faq-item"><strong>What does Delivery Package do?</strong><p>It exports a client-ready folder from your processed photos. You can optionally add a text watermark, strip GPS data for privacy, choose a flat or date/client folder structure, and generate a file manifest. Useful for handing off work to clients or agencies.</p></div>
 
-      <div class="faq-item"><strong>How do I use the Keyword Library?</strong><p>Open the Keyword Library from the toolbar. Add individual keywords or entire sets, then click to apply them to your current template. It's designed for keywords you reuse across multiple projects — genres, locations, client names.</p></div>
+      <div class="faq-item"><strong>How do I use the Keyword Library?</strong><p>Open the Keyword Library from the toolbar or via ⌥⌘L. Add individual keywords or entire sets, then click to apply them to your current template. It's designed for keywords you reuse across multiple projects — genres, locations, client names.</p></div>
 
-      <div class="faq-item"><strong>How does the Watch Folder work?</strong><p>Enable it in the toolbar and select a folder to monitor. Whenever new photos are added to that folder, PhotoMetaPro automatically picks them up and processes them with your current template settings.</p></div>
+      <div class="faq-item"><strong>How does the Watch Folder work?</strong><p>Open Watch Folder Settings from the toolbar or via ⌥⌘W. Select a folder to monitor and enable the toggle. PhotoMetaPro watches the folder using on-device file system events. When new photos are detected, they are automatically added to your photo queue. If "Auto-process" is enabled, processing starts automatically 2 seconds after detection (allowing a burst of dropped files to all be picked up first). If no output directory is configured, an alert prompts you to set one before processing begins.</p></div>
 
-      <div class="faq-item"><strong>How do I import GPS from a GPX file?</strong><p>Use the GPX Import button in the toolbar. Select your .gpx track file and PhotoMetaPro matches each photo's timestamp to the nearest track point, automatically tagging GPS coordinates across the whole shoot.</p></div>
+      <div class="faq-item"><strong>How do I import GPS from a GPX file?</strong><p>Use the GPX Import button in the toolbar or ⌥⌘G. Select your .gpx track file and PhotoMetaPro matches each photo's timestamp to the nearest track point, automatically tagging GPS coordinates across the whole shoot.</p></div>
 
-      <div class="faq-item"><strong>What is Date &amp; Time Shift?</strong><p>Use it to correct timestamp drift across a shoot — for example when you forgot to set the correct time zone, or when your camera clock was off. Enter the offset (hours, minutes, seconds) and it is applied to all selected photos.</p></div>
+      <div class="faq-item"><strong>What is Date &amp; Time Shift?</strong><p>Use it to correct timestamp drift across a shoot — for example when you forgot to set the correct time zone, or when your camera clock was off. Enter the offset (hours, minutes, seconds) and it is applied to all selected photos. Accessible via ⌥⌘T.</p></div>
 
-      <div class="faq-item"><strong>How does Batch Rename work?</strong><p>Open the Batch Rename sheet from the toolbar. Choose a pattern (prefix, sequence number, date, or custom), preview the result live, and apply to all or selected photos.</p></div>
+      <div class="faq-item"><strong>How does Batch Rename work?</strong><p>Open the Batch Rename sheet from the toolbar or via ⌥⌘N. Choose a pattern (prefix, sequence number, date, or custom), preview the result live, and apply to all or selected photos.</p></div>
+
+      <div class="faq-item"><strong>What keyboard shortcuts are available?</strong>
+        <p>PhotoMetaPro includes a comprehensive set of shortcuts. Key ones:</p>
+        <table class="shortcut-table">
+          <tr><th>Shortcut</th><th>Action</th></tr>
+          <tr><td><code>⌘O</code></td><td>Add Photos</td></tr>
+          <tr><td><code>⌘R</code></td><td>Process Photos</td></tr>
+          <tr><td><code>⌘A</code></td><td>Select All Photos</td></tr>
+          <tr><td><code>⌘Z / ⌘⇧Z</code></td><td>Undo / Redo</td></tr>
+          <tr><td><code>⌥⌘K</code></td><td>AI Keyword Suggestions</td></tr>
+          <tr><td><code>⌥⌘A</code></td><td>Smart Caption Generator</td></tr>
+          <tr><td><code>⌥⌘L</code></td><td>Keyword Library</td></tr>
+          <tr><td><code>⌥⌘T</code></td><td>Date &amp; Time Shift</td></tr>
+          <tr><td><code>⌥⌘N</code></td><td>Batch Rename</td></tr>
+          <tr><td><code>⌥⌘G</code></td><td>GPX Track Import</td></tr>
+          <tr><td><code>⌥⌘W</code></td><td>Watch Folder Settings</td></tr>
+          <tr><td><code>⌥⌘C</code></td><td>Camera Time Sync</td></tr>
+          <tr><td><code>⌥⌘U</code></td><td>Duplicate Detector</td></tr>
+          <tr><td><code>⌥⌘S</code></td><td>Stock Readiness Score</td></tr>
+          <tr><td><code>⌥⌘E</code></td><td>Delivery Package</td></tr>
+          <tr><td><code>⌥⌘P</code></td><td>Preview Metadata</td></tr>
+          <tr><td><code>⌥⌘B</code></td><td>Before / After Diff</td></tr>
+          <tr><td><code>⌥⌘J</code></td><td>Processing Log</td></tr>
+          <tr><td><code>⌘?</code></td><td>Show Help</td></tr>
+        </table>
+        <p>All tools are also available from the <strong>Tools</strong> menu in the macOS menu bar (between View and Window). A complete list is inside the app under Help → Keyboard Shortcuts.</p>
+      </div>
 
       <div class="faq-item"><strong>What are XMP sidecar files?</strong><p>Some RAW formats (e.g. certain Canon and Nikon RAW files) do not support metadata embedded directly in the file. For these, PhotoMetaPro can write a companion .xmp sidecar file that stores the metadata alongside the original without modifying it.</p></div>
 
@@ -254,7 +294,7 @@
 
       <div class="faq-item"><strong>Can I pause processing?</strong><p>Yes. Click the Cancel button during processing and you'll get three options: skip the current photo and continue, pause (resume later), or stop the entire batch.</p></div>
 
-      <div class="faq-item"><strong>Does the app need an internet connection?</strong><p>Only for the optional reverse geocoding feature, which converts GPS coordinates into readable place names using Apple's location services. Every other feature works completely offline.</p></div>
+      <div class="faq-item"><strong>Does the app need an internet connection?</strong><p>Only for the optional reverse geocoding feature, which converts GPS coordinates into readable place names using Apple's location services. Every other feature — including AI keyword suggestions, smart caption generation, and duplicate detection — works completely offline.</p></div>
 
       <div class="faq-item"><strong>What formats are supported?</strong><p>JPEG, PNG, TIFF and HEIC are fully supported. Many RAW formats are also supported (CR2, CR3, NEF, ARW, DNG and others), though metadata support for some RAW formats may be limited depending on camera model and macOS version.</p></div>
 
@@ -266,45 +306,73 @@
 
       <div class="faq-item"><strong>How do I export or share a template?</strong><p>Click the Templates menu in the toolbar and choose Export Template. This saves a .json file you can back up or share with colleagues. Use Import Template from the same menu to load it on another Mac. Templates carry all metadata fields, output settings and filename preferences.</p></div>
 
-      <div class="faq-item"><strong>What keyboard shortcuts are available?</strong><p>⌘O opens the file picker, ⌘P starts processing, ⌘A selects all photos, ⌘Z undoes the last change, ⌘⇧Z redoes it, and Escape dismisses most sheets. A complete list is available inside the app under Help → Keyboard Shortcuts.</p></div>
-
       <div class="faq-item"><strong>Does PhotoMetaPro support Apple Silicon?</strong><p>Yes. PhotoMetaPro is a universal binary — it runs natively on both Apple Silicon (M1, M2, M3, M4 and later) and Intel Macs. No Rosetta translation is required on Apple Silicon machines.</p></div>
 
       <div class="faq-item"><strong>Why did some of my RAW files not receive metadata?</strong><p>Some proprietary RAW formats do not support embedded metadata. For these files, enable XMP Sidecar output in the template settings. PhotoMetaPro will create a companion .xmp file alongside each original, which Lightroom, Capture One, Photoshop and most professional applications read automatically.</p></div>
 
-      <div class="faq-item"><strong>How do I view the processing log?</strong><p>Click the View Log button in the main window after a processing run. The log is filterable by status (success, warning, error, info) and can be exported as a plain text file — useful for auditing large batches or providing processing summaries to clients.</p></div>
+      <div class="faq-item"><strong>How do I view the processing log?</strong><p>Click the View Log button in the main window after a processing run, or press ⌥⌘J. The log is filterable by status (success, warning, error, info) and can be exported as a plain text file — useful for auditing large batches or providing processing summaries to clients.</p></div>
     </div>
 
     <!-- ── German ── -->
     <div class="lang lang-de hidden">
       <h2>Support</h2>
       <p class="section-intro">PhotoMetaPro ist ein unabhängiges, selbstfinanziertes Projekt. Das nachfolgende FAQ ist die primäre Informationsquelle und deckt die häufigsten Fragen ab. Es gibt keinen dedizierten Support-Kanal. Kontakt: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
-
       <div class="disclaimer"><strong>Hinweis:</strong> PhotoMetaPro ist ein unabhängiges Projekt, das neben anderen beruflichen Verpflichtungen entwickelt wird. Es gibt keinen dedizierten Support-Kanal; das nachfolgende FAQ ist die primäre Informationsquelle. Zukünftige Updates, Kompatibilität und neue Funktionen liegen im Ermessen des Entwicklers und sind nicht garantiert.</div>
 
       <h3>Häufige Fragen</h3>
 
       <div class="faq-item"><strong>Wie füge ich Fotos hinzu?</strong><p>Mit ⌘O eine Dateiauswahl öffnen oder Fotos per Drag-and-Drop direkt in die App ziehen. Unterstützte Formate: JPEG, PNG, TIFF, HEIC und viele RAW-Formate (Kompatibilität je nach macOS-Version).</p></div>
 
-      <div class="faq-item"><strong>Werden meine Originaldateien verändert?</strong><p>Nein, niemals. PhotoMetaPro schreibt verarbeitete Dateien immer in ein separates Ausgabeverzeichnis. Die Originale bleiben vollständig unberührt.</p></div>
+      <div class="faq-item"><strong>Werden meine Originaldateien verändert?</strong><p>Nein, niemals. PhotoMetaPro schreibt verarbeitete Dateien immer in ein separates Ausgabeverzeichnis. Die Originale bleiben vollständig unberührt. Einzige Ausnahme: der Smart Caption Generator schreibt den IPTC-Beschreibungstext direkt in die Originaldatei — ausschließlich als verlustfreier Metadaten-Schreibvorgang, ohne das Bild neu zu komprimieren.</p></div>
 
-      <div class="faq-item"><strong>Wie funktionieren die KI-Keyword-Vorschläge?</strong><p>PhotoMetaPro nutzt Apples Vision-Framework zur Bildanalyse direkt auf deinem Mac — ohne Internetverbindung, ohne Abo und ohne Kosten pro Nutzung. Es schlägt bis zu 15 relevante Keywords basierend auf dem Bildinhalt vor, gefiltert um bereits in der Vorlage vorhandene Begriffe.</p></div>
+      <div class="faq-item"><strong>Wie funktionieren die KI-Keyword-Vorschläge?</strong><p>PhotoMetaPro nutzt Apples Vision-Framework zur Bildanalyse direkt auf deinem Mac — ohne Internetverbindung, ohne Abo und ohne Kosten pro Nutzung. Es schlägt bis zu 15 relevante Keywords basierend auf dem Bildinhalt vor. Keywords werden in der Systemsprache generiert: Ist der Mac auf Deutsch eingestellt, erscheinen die Vorschläge auf Deutsch.</p></div>
 
-      <div class="faq-item"><strong>Was ist der Stock-Readiness-Score?</strong><p>Er prüft die Metadaten deiner Vorlage (Titel, Keywords, Copyright, Beschreibung u. a.) gegen die Einreichungsanforderungen großer Stockagenturen. Jedes Feld wird als bestanden, Warnung oder fehlgeschlagen angezeigt, damit du Lücken vor dem Einreichen beheben kannst.</p></div>
+      <div class="faq-item"><strong>Was ist der Smart Caption Generator?</strong><p>Der Smart Caption Generator (⌥⌘A oder die Sprechblasen-Schaltfläche in der Symbolleiste) analysiert mit Apple Vision die Szene, Motive und Gesichteranzahl jedes Fotos vollständig auf dem Gerät und entwirft dann einen natürlichsprachlichen Bildunterschriften-Satz. Die Bildunterschriften erscheinen in einem bearbeitbaren Textfeld — prüfen, anpassen und die gewünschten akzeptieren. „Akzeptierte Bildunterschriften speichern" schreibt den endgültigen Text direkt in das IPTC-Beschreibungsfeld (CaptionAbstract) jeder Originaldatei, ohne das Bild neu zu komprimieren. Bei deutschen Systemeinstellungen werden Bildunterschriften auf Deutsch generiert.</p></div>
+
+      <div class="faq-item"><strong>Was ist die Duplikat-Erkennung?</strong><p>Die Duplikat-Erkennung (⌥⌘U oder Symbolleisten-Schaltfläche) nutzt visuelle Fingerabdrücke per Apple Vision auf dem Gerät, um nahezu identische Fotos in der geladenen Warteschlange zu finden. Drei Empfindlichkeitsstufen: Streng erkennt nur nahezu pixelgenaue Kopien, Ausgewogen findet dieselbe Szene zweimal aufgenommen, Locker zeigt visuell ähnliche Bilder. Paare werden nebeneinander mit einem farbigen Ähnlichkeitsring angezeigt. „Aus Liste entfernen" entfernt eine Kopie aus der Verarbeitungswarteschlange — keine Dateien werden von der Festplatte gelöscht. Die Empfindlichkeit kann sofort angepasst werden, ohne neu zu scannen.</p></div>
+
+      <div class="faq-item"><strong>Was ist der Stock-Readiness-Score?</strong><p>Er prüft deine Metadaten gegen die Einreichungsanforderungen großer Stockagenturen. Zwei Modi stehen zur Verfügung: <em>Vorlagen-Score</em> bewertet dein aktives Vorlagen-Setup und zeigt, welche Felder fehlen oder schwach sind, bevor Fotos verarbeitet werden. <em>Fotos prüfen</em> liest die tatsächlich in deinen Fotodateien eingebetteten Metadaten und zeigt, welche einzelnen Fotos bestehen, Warnungen erhalten oder scheitern — nützlich zur Überprüfung nach der Verarbeitung.</p></div>
 
       <div class="faq-item"><strong>Wie funktioniert der Zwei-Kamera-Zeitsync?</strong><p>Je ein Referenzfoto pro Kamera auswählen. PhotoMetaPro berechnet den genauen Zeitversatz zwischen den beiden Kameras und wendet die Korrektur auf alle Fotos der zweiten Kamera an, sodass beide Streams perfekt synchronisiert sind.</p></div>
 
       <div class="faq-item"><strong>Was macht die Lieferpaket-Funktion?</strong><p>Sie exportiert einen kundenfertig aufbereiteten Ordner aus deinen verarbeiteten Fotos. Optional mit Wasserzeichen, GPS-Entfernung für den Datenschutz, flacher oder Datum/Kunden-Ordnerstruktur und automatischem Dateimanifest. Ideal für die Übergabe an Kunden oder Agenturen.</p></div>
 
-      <div class="faq-item"><strong>Wie nutze ich die Keyword-Bibliothek?</strong><p>Die Keyword-Bibliothek über die Symbolleiste öffnen. Einzelne Keywords oder ganze Sets hinzufügen und per Klick auf die aktuelle Vorlage anwenden. Gedacht für Keywords, die über mehrere Projekte hinweg verwendet werden — Genres, Orte, Kundennamen.</p></div>
+      <div class="faq-item"><strong>Wie nutze ich die Keyword-Bibliothek?</strong><p>Die Keyword-Bibliothek über die Symbolleiste oder ⌥⌘L öffnen. Einzelne Keywords oder ganze Sets hinzufügen und per Klick auf die aktuelle Vorlage anwenden. Gedacht für Keywords, die über mehrere Projekte hinweg verwendet werden — Genres, Orte, Kundennamen.</p></div>
 
-      <div class="faq-item"><strong>Wie funktioniert der Watch-Ordner?</strong><p>In der Symbolleiste aktivieren und einen zu überwachenden Ordner auswählen. Sobald neue Fotos in diesem Ordner auftauchen, erkennt PhotoMetaPro sie automatisch und verarbeitet sie mit den aktuellen Vorlagen-Einstellungen.</p></div>
+      <div class="faq-item"><strong>Wie funktioniert der Watch-Ordner?</strong><p>Watch-Ordner-Einstellungen über die Symbolleiste oder ⌥⌘W öffnen, einen Ordner auswählen und den Schalter aktivieren. PhotoMetaPro überwacht den Ordner per Dateisystem-Events direkt auf dem Gerät. Wenn neue Fotos erkannt werden, werden sie automatisch zur Fotowarteschlange hinzugefügt. Mit aktiviertem „Automatisch verarbeiten" startet die Verarbeitung 2 Sekunden nach der Erkennung — so können mehrere gleichzeitig hinzugefügte Dateien alle erfasst werden. Ohne konfiguriertes Ausgabeverzeichnis erscheint ein Hinweis zur Einrichtung.</p></div>
 
-      <div class="faq-item"><strong>Wie importiere ich GPS aus einer GPX-Datei?</strong><p>Die GPX-Import-Schaltfläche in der Symbolleiste verwenden. Nach Auswahl der .gpx-Trackdatei ordnet PhotoMetaPro jedem Foto den nächstgelegenen Trackpunkt anhand des Zeitstempels zu und taggt GPS-Koordinaten automatisch über den gesamten Shoot.</p></div>
+      <div class="faq-item"><strong>Wie importiere ich GPS aus einer GPX-Datei?</strong><p>Die GPX-Import-Schaltfläche in der Symbolleiste verwenden oder ⌥⌘G drücken. Nach Auswahl der .gpx-Trackdatei ordnet PhotoMetaPro jedem Foto den nächstgelegenen Trackpunkt anhand des Zeitstempels zu und taggt GPS-Koordinaten automatisch über den gesamten Shoot.</p></div>
 
-      <div class="faq-item"><strong>Was ist die Datum-&amp;-Zeit-Verschiebung?</strong><p>Damit lassen sich Zeitstempel-Abweichungen eines ganzen Shoots korrigieren — z. B. wenn die Zeitzone vergessen oder die Kamerazeit falsch eingestellt war. Offset (Stunden, Minuten, Sekunden) eingeben und er wird auf alle ausgewählten Fotos angewendet.</p></div>
+      <div class="faq-item"><strong>Was ist die Datum-&amp;-Zeit-Verschiebung?</strong><p>Damit lassen sich Zeitstempel-Abweichungen eines ganzen Shoots korrigieren — z. B. wenn die Zeitzone vergessen oder die Kamerazeit falsch eingestellt war. Offset (Stunden, Minuten, Sekunden) eingeben und er wird auf alle ausgewählten Fotos angewendet. Erreichbar über ⌥⌘T.</p></div>
 
-      <div class="faq-item"><strong>Wie funktioniert die Stapelumbenennung?</strong><p>Das Stapelumbenennen-Sheet über die Symbolleiste öffnen. Muster wählen (Präfix, Sequenznummer, Datum oder benutzerdefiniert), das Ergebnis live in der Vorschau sehen und auf alle oder ausgewählte Fotos anwenden.</p></div>
+      <div class="faq-item"><strong>Wie funktioniert die Stapelumbenennung?</strong><p>Das Stapelumbenennen-Sheet über die Symbolleiste oder ⌥⌘N öffnen. Muster wählen (Präfix, Sequenznummer, Datum oder benutzerdefiniert), das Ergebnis live in der Vorschau sehen und auf alle oder ausgewählte Fotos anwenden.</p></div>
+
+      <div class="faq-item"><strong>Welche Tastaturkürzel gibt es?</strong>
+        <p>PhotoMetaPro bietet eine umfassende Auswahl an Kürzeln. Die wichtigsten:</p>
+        <table class="shortcut-table">
+          <tr><th>Kürzel</th><th>Aktion</th></tr>
+          <tr><td><code>⌘O</code></td><td>Fotos hinzufügen</td></tr>
+          <tr><td><code>⌘R</code></td><td>Fotos verarbeiten</td></tr>
+          <tr><td><code>⌘A</code></td><td>Alle Fotos auswählen</td></tr>
+          <tr><td><code>⌘Z / ⌘⇧Z</code></td><td>Rückgängig / Wiederholen</td></tr>
+          <tr><td><code>⌥⌘K</code></td><td>KI-Keyword-Vorschläge</td></tr>
+          <tr><td><code>⌥⌘A</code></td><td>Smart Caption Generator</td></tr>
+          <tr><td><code>⌥⌘L</code></td><td>Keyword-Bibliothek</td></tr>
+          <tr><td><code>⌥⌘T</code></td><td>Datum &amp; Zeit verschieben</td></tr>
+          <tr><td><code>⌥⌘N</code></td><td>Stapelumbenennung</td></tr>
+          <tr><td><code>⌥⌘G</code></td><td>GPX-Track-Import</td></tr>
+          <tr><td><code>⌥⌘W</code></td><td>Watch-Ordner-Einstellungen</td></tr>
+          <tr><td><code>⌥⌘C</code></td><td>Kamerazeitabgleich</td></tr>
+          <tr><td><code>⌥⌘U</code></td><td>Duplikat-Erkennung</td></tr>
+          <tr><td><code>⌥⌘S</code></td><td>Stock-Readiness-Bewertung</td></tr>
+          <tr><td><code>⌥⌘E</code></td><td>Lieferpaket-Ersteller</td></tr>
+          <tr><td><code>⌥⌘P</code></td><td>Metadaten-Vorschau</td></tr>
+          <tr><td><code>⌥⌘B</code></td><td>Vorher / Nachher-Vergleich</td></tr>
+          <tr><td><code>⌥⌘J</code></td><td>Verarbeitungslog</td></tr>
+          <tr><td><code>⌘?</code></td><td>Hilfe anzeigen</td></tr>
+        </table>
+        <p>Alle Werkzeuge sind auch über das Menü <strong>Werkzeuge</strong> in der macOS-Menüleiste erreichbar (zwischen „Darstellung" und „Fenster"). Eine vollständige Liste ist in der App unter Hilfe → Tastaturkürzel verfügbar.</p>
+      </div>
 
       <div class="faq-item"><strong>Was sind XMP-Sidecar-Dateien?</strong><p>Einige RAW-Formate unterstützen keine direkt eingebetteten Metadaten. Für diese kann PhotoMetaPro eine .xmp-Begleitdatei erstellen, die die Metadaten neben dem Original speichert, ohne es zu verändern.</p></div>
 
@@ -314,7 +382,7 @@
 
       <div class="faq-item"><strong>Kann ich die Verarbeitung pausieren?</strong><p>Ja. Die Abbrechen-Schaltfläche während der Verarbeitung anklicken — es erscheinen drei Optionen: aktuelles Foto überspringen und fortfahren, pausieren (später fortsetzen) oder den gesamten Stapel stoppen.</p></div>
 
-      <div class="faq-item"><strong>Benötigt die App eine Internetverbindung?</strong><p>Nur für das optionale Reverse Geocoding, das GPS-Koordinaten über Apples Ortsdienste in lesbare Ortsnamen umwandelt. Alle anderen Funktionen laufen vollständig offline.</p></div>
+      <div class="faq-item"><strong>Benötigt die App eine Internetverbindung?</strong><p>Nur für das optionale Reverse Geocoding, das GPS-Koordinaten über Apples Ortsdienste in lesbare Ortsnamen umwandelt. Alle anderen Funktionen — einschließlich KI-Keyword-Vorschläge, Smart Caption Generator und Duplikat-Erkennung — laufen vollständig offline.</p></div>
 
       <div class="faq-item"><strong>Welche Formate werden unterstützt?</strong><p>JPEG, PNG, TIFF und HEIC werden vollständig unterstützt. Viele RAW-Formate werden ebenfalls unterstützt (CR2, CR3, NEF, ARW, DNG u. a.), jedoch kann die Metadaten-Unterstützung je nach Kameramodell und macOS-Version eingeschränkt sein.</p></div>
 
@@ -326,13 +394,11 @@
 
       <div class="faq-item"><strong>Wie exportiere oder teile ich eine Vorlage?</strong><p>Im Vorlagen-Menü der Symbolleiste „Vorlage exportieren" wählen. Dabei wird eine .json-Datei gespeichert, die gesichert oder mit Kollegen geteilt werden kann. Über „Vorlage importieren" aus demselben Menü lässt sie sich auf einem anderen Mac laden. Vorlagen enthalten alle Metadatenfelder, Ausgabe-Einstellungen und Dateinamen-Präferenzen.</p></div>
 
-      <div class="faq-item"><strong>Welche Tastaturkürzel gibt es?</strong><p>⌘O öffnet die Dateiauswahl, ⌘P startet die Verarbeitung, ⌘A wählt alle Fotos aus, ⌘Z macht die letzte Änderung rückgängig, ⌘⇧Z stellt sie wieder her, und Escape schließt die meisten Sheets. Eine vollständige Liste ist in der App unter Hilfe → Tastaturkürzel verfügbar.</p></div>
-
       <div class="faq-item"><strong>Unterstützt PhotoMetaPro Apple Silicon?</strong><p>Ja. PhotoMetaPro ist eine universelle Binary — sie läuft nativ auf Apple Silicon (M1, M2, M3, M4 und neuer) sowie auf Intel-Macs. Auf Apple-Silicon-Geräten ist keine Rosetta-Übersetzung erforderlich.</p></div>
 
       <div class="faq-item"><strong>Warum haben einige meiner RAW-Dateien keine Metadaten erhalten?</strong><p>Manche proprietären RAW-Formate unterstützen keine eingebetteten Metadaten. Für diese Dateien den XMP-Sidecar-Export in den Vorlagen-Einstellungen aktivieren. PhotoMetaPro erstellt dann eine .xmp-Begleitdatei neben jedem Original — diese wird von Lightroom, Capture One, Photoshop und den meisten professionellen Anwendungen automatisch gelesen.</p></div>
 
-      <div class="faq-item"><strong>Wie sehe ich das Verarbeitungsprotokoll?</strong><p>Nach einem Verarbeitungslauf auf die Schaltfläche „Protokoll anzeigen" im Hauptfenster klicken. Das Protokoll ist nach Status filterbar (Erfolg, Warnung, Fehler, Info) und kann als Textdatei exportiert werden — nützlich für die Prüfung großer Batches oder für Verarbeitungsübersichten an Kunden.</p></div>
+      <div class="faq-item"><strong>Wie sehe ich das Verarbeitungsprotokoll?</strong><p>Nach einem Verarbeitungslauf auf die Schaltfläche „Protokoll anzeigen" im Hauptfenster klicken oder ⌥⌘J drücken. Das Protokoll ist nach Status filterbar (Erfolg, Warnung, Fehler, Info) und kann als Textdatei exportiert werden — nützlich für die Prüfung großer Batches oder für Verarbeitungsübersichten an Kunden.</p></div>
     </div>
   </div>
 
@@ -342,10 +408,8 @@
     <!-- ── English ── -->
     <div class="lang lang-en">
       <h2>Privacy Policy</h2>
-
       <h3>No Data Collection</h3>
       <p>PhotoMetaPro does <strong>not</strong> collect, transmit, store remotely, or share any data about you or your photos. All processing happens entirely on your Mac.</p>
-
       <h3>What Is Stored Locally</h3>
       <p>The following data is stored only on your device using macOS standard mechanisms (UserDefaults, app sandbox, file system) and never leaves your Mac:</p>
       <ul>
@@ -357,33 +421,27 @@
         <li>App preferences (language, last-used settings)</li>
         <li>Watch Folder configuration</li>
       </ul>
-
       <h3>Network Usage</h3>
       <p>PhotoMetaPro makes no network requests except for the optional <strong>Reverse Geocoding</strong> feature. When you add GPS coordinates and enable reverse geocoding, your Mac contacts Apple's location services to resolve coordinates into place names. This uses the same Apple CoreLocation infrastructure as the macOS Maps app. No other feature makes any network request.</p>
-      <p>The <strong>AI Keyword Suggestions</strong> feature uses Apple's Vision framework and runs entirely on-device. No image data or keywords are sent anywhere.</p>
-
+      <p>The <strong>AI Keyword Suggestions</strong>, <strong>Smart Caption Generator</strong>, and <strong>Duplicate Detector</strong> all use Apple's Vision framework and run entirely on-device. No image data, keywords, captions, or fingerprints are sent anywhere.</p>
+      <h3>Smart Caption Generator &amp; File Writes</h3>
+      <p>The Smart Caption Generator writes IPTC Description (CaptionAbstract) text directly into your original photo files using a lossless metadata-only write. No image data is re-compressed or uploaded. This is the only feature that modifies original files, and it does so only when you explicitly press "Save Accepted Captions".</p>
       <h3>No Analytics or Tracking</h3>
       <p>PhotoMetaPro contains zero third-party SDKs, analytics libraries, crash reporters, or telemetry. No usage statistics, device identifiers, or diagnostics are collected or transmitted.</p>
-
       <h3>No Advertising</h3>
       <p>PhotoMetaPro contains no advertising and does not use any advertising identifier or tracking framework.</p>
-
       <h3>Your Photo Data</h3>
       <p>PhotoMetaPro reads photo files only to display thumbnails and write metadata. No image content is uploaded, cached remotely, or shared with any service. Processed files are written to the output directory you choose.</p>
-
       <h3>Changes to This Policy</h3>
       <p>This policy may be updated to reflect new features. The date below reflects the most recent revision. Continued use of the app after an update constitutes acceptance of the revised policy.</p>
-
       <p><em>Last updated: April 2026</em></p>
     </div>
 
     <!-- ── German ── -->
     <div class="lang lang-de hidden">
       <h2>Datenschutzerklärung</h2>
-
       <h3>Keine Datenerfassung</h3>
       <p>PhotoMetaPro erfasst, überträgt, speichert oder teilt <strong>keinerlei</strong> Daten über dich oder deine Fotos. Alle Verarbeitung findet ausschließlich auf deinem Mac statt.</p>
-
       <h3>Was lokal gespeichert wird</h3>
       <p>Folgende Daten werden nur auf deinem Gerät gespeichert — über die Standard-Mechanismen von macOS (UserDefaults, App-Sandbox, Dateisystem) — und verlassen deinen Mac niemals:</p>
       <ul>
@@ -395,34 +453,28 @@
         <li>App-Einstellungen (Sprache, zuletzt verwendete Einstellungen)</li>
         <li>Watch-Ordner-Konfiguration</li>
       </ul>
-
       <h3>Netzwerknutzung</h3>
-      <p>PhotoMetaPro stellt keine Netzwerkanfragen — mit einer einzigen Ausnahme: die optionale <strong>Reverse-Geocoding</strong>-Funktion. Wenn GPS-Koordinaten hinzugefügt und Reverse Geocoding aktiviert ist, kontaktiert dein Mac Apples Ortsdienste, um Koordinaten in Ortsnamen aufzulösen. Dabei wird dieselbe Apple-CoreLocation-Infrastruktur wie in der macOS-Karten-App verwendet. Keine andere Funktion stellt Netzwerkanfragen.</p>
-      <p>Die <strong>KI-Keyword-Vorschläge</strong> nutzen Apples Vision-Framework und laufen vollständig auf dem Gerät. Keine Bilddaten oder Keywords werden übertragen.</p>
-
+      <p>PhotoMetaPro stellt keine Netzwerkanfragen — mit einer einzigen Ausnahme: die optionale <strong>Reverse-Geocoding</strong>-Funktion. Wenn GPS-Koordinaten hinzugefügt und Reverse Geocoding aktiviert ist, kontaktiert dein Mac Apples Ortsdienste, um Koordinaten in Ortsnamen aufzulösen. Keine andere Funktion stellt Netzwerkanfragen.</p>
+      <p><strong>KI-Keyword-Vorschläge</strong>, <strong>Smart Caption Generator</strong> und <strong>Duplikat-Erkennung</strong> nutzen Apples Vision-Framework und laufen vollständig auf dem Gerät. Keine Bilddaten, Keywords, Bildunterschriften oder Fingerabdrücke werden übertragen.</p>
+      <h3>Smart Caption Generator &amp; Datei-Schreibzugriffe</h3>
+      <p>Der Smart Caption Generator schreibt den IPTC-Beschreibungstext (CaptionAbstract) direkt in deine Original-Fotodateien — ausschließlich als verlustfreier Metadaten-Schreibvorgang, ohne Bild-Neukomprimierung und ohne Upload. Dies ist die einzige Funktion, die Originaldateien ändert, und nur dann, wenn „Akzeptierte Bildunterschriften speichern" explizit ausgelöst wird.</p>
       <h3>Keine Analysen oder Tracking</h3>
       <p>PhotoMetaPro enthält keinerlei Drittanbieter-SDKs, Analyse-Bibliotheken, Absturzmeldedienste oder Telemetrie. Es werden keine Nutzungsstatistiken, Gerätekennungen oder Diagnosedaten erfasst oder übermittelt.</p>
-
       <h3>Keine Werbung</h3>
       <p>PhotoMetaPro enthält keine Werbung und verwendet keine Werbe-IDs oder Tracking-Frameworks.</p>
-
       <h3>Deine Fotodaten</h3>
       <p>PhotoMetaPro liest Fotodateien ausschließlich zur Anzeige von Vorschaubildern und zum Schreiben von Metadaten. Kein Bildinhalt wird hochgeladen, remote zwischengespeichert oder an einen Dienst weitergegeben. Verarbeitete Dateien werden in das von dir gewählte Ausgabeverzeichnis geschrieben.</p>
-
       <h3>Änderungen dieser Richtlinie</h3>
       <p>Diese Richtlinie kann aktualisiert werden, um neue Funktionen widerzuspiegeln. Das unten stehende Datum zeigt die letzte Überarbeitung. Die weitere Nutzung der App nach einer Aktualisierung gilt als Zustimmung zur geänderten Richtlinie.</p>
-
       <p><em>Stand: April 2026</em></p>
     </div>
   </div>
 
 </div>
-
 <footer>
   © 2026 Andres Wetzel Bagolini &nbsp;|&nbsp;
   <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a> &nbsp;|&nbsp;
   <a href="https://apps.apple.com/app/id6757343410">Mac App Store</a>
 </footer>
-
 </body>
 </html>
